@@ -1,0 +1,92 @@
+[
+  {
+    "pseudocode": "for i from 0 to n-1:\n for j from i+1 to n-1:\n  if arr[i] + arr[j] == target return true",
+    "approach_type": "brute_force",
+    "time_complexity": "O(n^2)",
+    "issues": ["nested loops", "inefficient for large n"]
+  },
+  {
+    "pseudocode": "create empty map\nfor each element x in array:\n if target-x exists in map return true\n else insert x",
+    "approach_type": "optimal",
+    "time_complexity": "O(n)",
+    "issues": []
+  },
+  {
+    "pseudocode": "count open and close brackets\nif counts equal return valid",
+    "approach_type": "incorrect",
+    "time_complexity": "O(n)",
+    "issues": ["ignores order", "logical flaw"]
+  },
+  {
+    "pseudocode": "initialize empty stack\nfor each char:\n if opening push\n else if matches top pop\n else return invalid",
+    "approach_type": "optimal",
+    "time_complexity": "O(n)",
+    "issues": []
+  },
+  {
+    "pseudocode": "for i from 0 to n-1:\n if arr[i] == key return i",
+    "approach_type": "linear_search",
+    "time_complexity": "O(n)",
+    "issues": ["does not leverage sorted property"]
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)/2\n compare arr[mid]",
+    "approach_type": "optimal",
+    "time_complexity": "O(log n)",
+    "issues": []
+  },
+  {
+    "pseudocode": "function fib(n):\n if n<=1 return n\n return fib(n-1)+fib(n-2)",
+    "approach_type": "recursive_brute_force",
+    "time_complexity": "O(2^n)",
+    "issues": ["overlapping subproblems", "inefficient recursion"]
+  },
+  {
+    "pseudocode": "dp[0]=0, dp[1]=1\nfor i from 2 to n:\n dp[i]=dp[i-1]+dp[i-2]",
+    "approach_type": "dynamic_programming",
+    "time_complexity": "O(n)",
+    "issues": []
+  },
+  {
+    "pseudocode": "reverse values by copying into new list",
+    "approach_type": "suboptimal",
+    "time_complexity": "O(n)",
+    "issues": ["extra memory usage"]
+  },
+  {
+    "pseudocode": "prev=null, curr=head\nwhile curr!=null:\n next=curr.next\n curr.next=prev\n prev=curr\n curr=next",
+    "approach_type": "optimal",
+    "time_complexity": "O(n)",
+    "issues": []
+  },
+  {
+    "pseudocode": "for each node:\n visit all neighbors using recursion",
+    "approach_type": "dfs",
+    "time_complexity": "O(V+E)",
+    "issues": ["may not give shortest path"]
+  },
+  {
+    "pseudocode": "use queue\npush start\nvisit neighbors level by level",
+    "approach_type": "bfs",
+    "time_complexity": "O(V+E)",
+    "issues": []
+  },
+  {
+    "pseudocode": "sort array\nuse two pointers to find target sum",
+    "approach_type": "optimized_but_flawed",
+    "time_complexity": "O(n log n)",
+    "issues": ["original indices lost"]
+  },
+  {
+    "pseudocode": "recursively call function without base case",
+    "approach_type": "incorrect",
+    "time_complexity": "infinite",
+    "issues": ["missing base condition"]
+  },
+  {
+    "pseudocode": "check only first and last elements for condition",
+    "approach_type": "incorrect",
+    "time_complexity": "O(1)",
+    "issues": ["incomplete logic", "fails general case"]
+  }
+]
