@@ -1,0 +1,167 @@
+[
+  {
+    "algorithm": "Two Sum (Hash Map)",
+    "input": "nums = [2,7,11,15], target = 9",
+    "dry_run": [
+      "Initialize empty hash map",
+      "Read 2 → need 7, not found → store 2",
+      "Read 7 → need 2, found in map",
+      "Return indices of 2 and 7"
+    ]
+  },
+  {
+    "algorithm": "Two Sum (Brute Force)",
+    "input": "nums = [3,2,4], target = 6",
+    "dry_run": [
+      "Check pair (3,2) → sum 5",
+      "Check pair (3,4) → sum 7",
+      "Check pair (2,4) → sum 6",
+      "Target found"
+    ]
+  },
+  {
+    "algorithm": "Valid Parentheses (Stack)",
+    "input": "()[]{}",
+    "dry_run": [
+      "Read '(' → push to stack",
+      "Read ')' → pop matching '('",
+      "Read '[' → push",
+      "Read ']' → pop",
+      "Read '{' → push",
+      "Read '}' → pop",
+      "Stack empty → valid"
+    ]
+  },
+  {
+    "algorithm": "Valid Parentheses (Invalid Case)",
+    "input": "(]",
+    "dry_run": [
+      "Read '(' → push to stack",
+      "Read ']' → top is '(' which does not match",
+      "Return invalid"
+    ]
+  },
+  {
+    "algorithm": "Binary Search",
+    "input": "arr = [1,3,5,7,9], target = 7",
+    "dry_run": [
+      "Set low=0, high=4",
+      "mid=2 → value 5 < target",
+      "Move low to mid+1",
+      "mid=3 → value 7 == target",
+      "Element found"
+    ]
+  },
+  {
+    "algorithm": "Linear Search",
+    "input": "arr = [4,6,1,9], target = 1",
+    "dry_run": [
+      "Check 4 → not match",
+      "Check 6 → not match",
+      "Check 1 → match found",
+      "Return index"
+    ]
+  },
+  {
+    "algorithm": "Fibonacci (Recursive)",
+    "input": "n = 4",
+    "dry_run": [
+      "fib(4) calls fib(3) and fib(2)",
+      "fib(3) calls fib(2) and fib(1)",
+      "fib(2) returns 1",
+      "fib(1) returns 1",
+      "Combine results to get fib(4)"
+    ]
+  },
+  {
+    "algorithm": "Fibonacci (Dynamic Programming)",
+    "input": "n = 5",
+    "dry_run": [
+      "Initialize dp[0]=0, dp[1]=1",
+      "dp[2]=1",
+      "dp[3]=2",
+      "dp[4]=3",
+      "dp[5]=5",
+      "Return dp[5]"
+    ]
+  },
+  {
+    "algorithm": "Reverse Linked List",
+    "input": "1 -> 2 -> 3 -> null",
+    "dry_run": [
+      "Set prev=null, curr=1",
+      "Reverse link of 1 → prev=1",
+      "Move to node 2",
+      "Reverse link of 2 → prev=2",
+      "Move to node 3",
+      "Reverse link of 3 → prev=3",
+      "List reversed"
+    ]
+  },
+  {
+    "algorithm": "Stack Push and Pop",
+    "input": "Push 1, Push 2, Pop",
+    "dry_run": [
+      "Push 1 → stack = [1]",
+      "Push 2 → stack = [1,2]",
+      "Pop → removes 2",
+      "Stack now = [1]"
+    ]
+  },
+  {
+    "algorithm": "Queue Enqueue and Dequeue",
+    "input": "Enqueue 5, Enqueue 6, Dequeue",
+    "dry_run": [
+      "Enqueue 5 → queue = [5]",
+      "Enqueue 6 → queue = [5,6]",
+      "Dequeue → removes 5",
+      "Queue now = [6]"
+    ]
+  },
+  {
+    "algorithm": "DFS Traversal",
+    "input": "Graph starting at node A",
+    "dry_run": [
+      "Visit A",
+      "Move to neighbor B",
+      "Visit B",
+      "Move to neighbor C",
+      "Visit C",
+      "Backtrack after no unvisited neighbors"
+    ]
+  },
+  {
+    "algorithm": "BFS Traversal",
+    "input": "Graph starting at node A",
+    "dry_run": [
+      "Enqueue A",
+      "Visit A",
+      "Enqueue neighbors B and C",
+      "Visit B",
+      "Visit C"
+    ]
+  },
+  {
+    "algorithm": "Finding Maximum in Array",
+    "input": "[3,1,7,2]",
+    "dry_run": [
+      "Initialize max = 3",
+      "Compare with 1 → max stays 3",
+      "Compare with 7 → max updated to 7",
+      "Compare with 2 → max stays 7",
+      "Return max"
+    ]
+  },
+  {
+    "algorithm": "Factorial (Iterative)",
+    "input": "n = 4",
+    "dry_run": [
+      "Initialize result = 1",
+      "Multiply by 1 → result = 1",
+      "Multiply by 2 → result = 2",
+      "Multiply by 3 → result = 6",
+      "Multiply by 4 → result = 24",
+      "Return result"
+    ]
+  }
+]
