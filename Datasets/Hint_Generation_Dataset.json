@@ -1,0 +1,62 @@
+[
+  {
+    "input": "Student is using two nested loops for Two Sum",
+    "output": "Can you avoid checking the same pairs repeatedly by storing past information?"
+  },
+  {
+    "input": "Student says they will sort the array for Two Sum",
+    "output": "After sorting, how will you ensure the original indices are preserved?"
+  },
+  {
+    "input": "Student is confused about which data structure to use for Valid Parentheses",
+    "output": "Does the order in which brackets appear matter in this problem?"
+  },
+  {
+    "input": "Student is checking only the count of opening and closing brackets",
+    "output": "Is matching quantity alone enough, or does the sequence also matter?"
+  },
+  {
+    "input": "Student is stuck while solving Binary Search",
+    "output": "What condition allows you to safely discard half of the search space?"
+  },
+  {
+    "input": "Student is using linear search instead of binary search",
+    "output": "Is there any property of the input that allows faster searching?"
+  },
+  {
+    "input": "Student tries recursion for Fibonacci without optimization",
+    "output": "Are you recomputing the same values multiple times?"
+  },
+  {
+    "input": "Student is confused between stack and queue usage",
+    "output": "Do you need to process elements in insertion order or reverse order?"
+  },
+  {
+    "input": "Student is unsure how to start a graph traversal problem",
+    "output": "Would visiting neighbors level by level or depth-wise make more sense here?"
+  },
+  {
+    "input": "Student uses DFS where shortest path is required",
+    "output": "Does this problem require minimizing the number of steps?"
+  },
+  {
+    "input": "Student forgets to consider edge cases in array problems",
+    "output": "What happens when the array has only one or two elements?"
+  },
+  {
+    "input": "Student is writing a solution without analyzing constraints",
+    "output": "How large can the input grow, and will your approach scale?"
+  },
+  {
+    "input": "Student solution fails for negative numbers",
+    "output": "Does your logic assume all values are positive?"
+  },
+  {
+    "input": "Student is stuck after writing brute force pseudocode",
+    "output": "Is there a way to reuse earlier computations to save time?"
+  },
+  {
+    "input": "Student does not know when to stop recursion",
+    "output": "What is the simplest input for which the answer is already known?"
+  }
+]
