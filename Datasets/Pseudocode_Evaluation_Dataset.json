@@ -1,92 +1,2402 @@
 [
   {
-    "pseudocode": "for i from 0 to n-1:\n for j from i+1 to n-1:\n  if arr[i] + arr[j] == target return true",
-    "approach_type": "brute_force",
-    "time_complexity": "O(n^2)",
-    "issues": ["nested loops", "inefficient for large n"]
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "create empty map\nfor each element x in array:\n if target-x exists in map return true\n else insert x",
-    "approach_type": "optimal",
-    "time_complexity": "O(n)",
-    "issues": []
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "count open and close brackets\nif counts equal return valid",
-    "approach_type": "incorrect",
-    "time_complexity": "O(n)",
-    "issues": ["ignores order", "logical flaw"]
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "initialize empty stack\nfor each char:\n if opening push\n else if matches top pop\n else return invalid",
-    "approach_type": "optimal",
-    "time_complexity": "O(n)",
-    "issues": []
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "for i from 0 to n-1:\n if arr[i] == key return i",
-    "approach_type": "linear_search",
-    "time_complexity": "O(n)",
-    "issues": ["does not leverage sorted property"]
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)/2\n compare arr[mid]",
-    "approach_type": "optimal",
-    "time_complexity": "O(log n)",
-    "issues": []
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "function fib(n):\n if n<=1 return n\n return fib(n-1)+fib(n-2)",
-    "approach_type": "recursive_brute_force",
-    "time_complexity": "O(2^n)",
-    "issues": ["overlapping subproblems", "inefficient recursion"]
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "dp[0]=0, dp[1]=1\nfor i from 2 to n:\n dp[i]=dp[i-1]+dp[i-2]",
-    "approach_type": "dynamic_programming",
-    "time_complexity": "O(n)",
-    "issues": []
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "reverse values by copying into new list",
-    "approach_type": "suboptimal",
-    "time_complexity": "O(n)",
-    "issues": ["extra memory usage"]
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
   },
   {
-    "pseudocode": "prev=null, curr=head\nwhile curr!=null:\n next=curr.next\n curr.next=prev\n prev=curr\n curr=next",
-    "approach_type": "optimal",
-    "time_complexity": "O(n)",
-    "issues": []
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
   },
   {
-    "pseudocode": "for each node:\n visit all neighbors using recursion",
-    "approach_type": "dfs",
-    "time_complexity": "O(V+E)",
-    "issues": ["may not give shortest path"]
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
   },
   {
-    "pseudocode": "use queue\npush start\nvisit neighbors level by level",
-    "approach_type": "bfs",
-    "time_complexity": "O(V+E)",
-    "issues": []
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "sort array\nuse two pointers to find target sum",
-    "approach_type": "optimized_but_flawed",
-    "time_complexity": "O(n log n)",
-    "issues": ["original indices lost"]
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
   },
   {
-    "pseudocode": "recursively call function without base case",
-    "approach_type": "incorrect",
-    "time_complexity": "infinite",
-    "issues": ["missing base condition"]
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
   },
   {
-    "pseudocode": "check only first and last elements for condition",
-    "approach_type": "incorrect",
-    "time_complexity": "O(1)",
-    "issues": ["incomplete logic", "fails general case"]
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create map\nfor element in array:\n if complement exists:\n  return true",
+    "label": "correct",
+    "detected_approach": "hashmap",
+    "issue": "none",
+    "suggestion": "Optimal solution",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for i in range(n):\n for j in range(i+1,n):\n  check condition",
+    "label": "suboptimal",
+    "detected_approach": "brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use hashmap",
+    "time_complexity": "O(n^2)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "create new array\ncopy elements in reverse",
+    "label": "suboptimal",
+    "detected_approach": "extra_memory",
+    "issue": "inefficient approach",
+    "suggestion": "Use in-place method",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "low=0, high=n-1\nwhile low<=high:\n mid=(low+high)//2\n adjust bounds",
+    "label": "correct",
+    "detected_approach": "binary_search",
+    "issue": "none",
+    "suggestion": "Efficient for sorted arrays",
+    "time_complexity": "O(log n)"
+  },
+  {
+    "pseudocode": "dp[0]=base\nfor i in range(1,n):\n dp[i]=dp[i-1]+dp[i-2]",
+    "label": "correct",
+    "detected_approach": "dynamic_programming",
+    "issue": "none",
+    "suggestion": "Avoid recomputation",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "l=0,r=n-1\nwhile l<r:\n adjust pointers",
+    "label": "correct",
+    "detected_approach": "two_pointers",
+    "issue": "none",
+    "suggestion": "Efficient approach",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)+f(n-2)",
+    "label": "suboptimal",
+    "detected_approach": "recursive_brute_force",
+    "issue": "inefficient approach",
+    "suggestion": "Use DP",
+    "time_complexity": "O(2^n)"
+  },
+  {
+    "pseudocode": "for element in array:\n if element == target:\n  return true",
+    "label": "suboptimal",
+    "detected_approach": "linear_search",
+    "issue": "inefficient approach",
+    "suggestion": "Use binary search if sorted",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "count elements and compare only",
+    "label": "incorrect",
+    "detected_approach": "invalid_logic",
+    "issue": "logical error",
+    "suggestion": "Fix logic using proper data structure",
+    "time_complexity": "O(n)"
+  },
+  {
+    "pseudocode": "function f(n):\n return f(n-1)",
+    "label": "incorrect",
+    "detected_approach": "invalid_recursion",
+    "issue": "logical error",
+    "suggestion": "Add base case",
+    "time_complexity": "undefined"
   }
 ]
