@@ -1,62 +1,267 @@
 [
-  {
-    "input": "Student is using two nested loops for Two Sum",
-    "output": "Can you avoid checking the same pairs repeatedly by storing past information?"
-  },
-  {
-    "input": "Student says they will sort the array for Two Sum",
-    "output": "After sorting, how will you ensure the original indices are preserved?"
-  },
-  {
-    "input": "Student is confused about which data structure to use for Valid Parentheses",
-    "output": "Does the order in which brackets appear matter in this problem?"
-  },
-  {
-    "input": "Student is checking only the count of opening and closing brackets",
-    "output": "Is matching quantity alone enough, or does the sequence also matter?"
-  },
-  {
-    "input": "Student is stuck while solving Binary Search",
-    "output": "What condition allows you to safely discard half of the search space?"
-  },
-  {
-    "input": "Student is using linear search instead of binary search",
-    "output": "Is there any property of the input that allows faster searching?"
-  },
-  {
-    "input": "Student tries recursion for Fibonacci without optimization",
-    "output": "Are you recomputing the same values multiple times?"
-  },
-  {
-    "input": "Student is confused between stack and queue usage",
-    "output": "Do you need to process elements in insertion order or reverse order?"
-  },
-  {
-    "input": "Student is unsure how to start a graph traversal problem",
-    "output": "Would visiting neighbors level by level or depth-wise make more sense here?"
-  },
-  {
-    "input": "Student uses DFS where shortest path is required",
-    "output": "Does this problem require minimizing the number of steps?"
-  },
-  {
-    "input": "Student forgets to consider edge cases in array problems",
-    "output": "What happens when the array has only one or two elements?"
-  },
-  {
-    "input": "Student is writing a solution without analyzing constraints",
-    "output": "How large can the input grow, and will your approach scale?"
-  },
-  {
-    "input": "Student solution fails for negative numbers",
-    "output": "Does your logic assume all values are positive?"
-  },
-  {
-    "input": "Student is stuck after writing brute force pseudocode",
-    "output": "Is there a way to reuse earlier computations to save time?"
-  },
-  {
-    "input": "Student does not know when to stop recursion",
-    "output": "What is the simplest input for which the answer is already known?"
-  }
+{"problem":"Find two numbers in an array that sum to a target.","hints":["Do you need to check every possible pair?","Can you store elements while iterating?","Using a hash map allows quick lookup of complements."]},
+{"problem":"Check if a string has valid parentheses.","hints":["Is order important or just count?","How can you track opening brackets?","A stack helps ensure correct matching."]},
+{"problem":"Search for an element in a sorted array.","hints":["Can you reduce the search space each step?","What role does the middle element play?","Binary search is efficient here."]},
+{"problem":"Find the maximum sum of a subarray.","hints":["Do you need to consider all subarrays?","Can you track a running sum?","Kadane’s algorithm helps find the maximum sum efficiently."]},
+{"problem":"Compute Fibonacci efficiently.","hints":["Are you recomputing values?","Can previous results be reused?","Dynamic programming avoids redundant calculations."]},
+
+{"problem":"Find duplicate in array.","hints":["Can you track seen values?","What structure gives constant lookup?","Using a set can detect duplicates quickly."]},
+{"problem":"Reverse a linked list.","hints":["What happens to next pointers?","Can you reverse links step by step?","Iteratively updating pointers reverses the list."]},
+{"problem":"Find middle of linked list.","hints":["Do you need two passes?","Can pointers move at different speeds?","Slow and fast pointer technique works."]},
+{"problem":"Detect cycle in linked list.","hints":["What if nodes repeat?","Can two pointers help detect a loop?","Floyd’s cycle detection algorithm is useful."]},
+{"problem":"Merge two sorted arrays.","hints":["Do you need to sort again?","Can you compare elements sequentially?","Two pointers can merge efficiently."]},
+
+{"problem":"Check if string is palindrome.","hints":["Do you need extra memory?","Can you compare both ends?","Two pointers help solve this efficiently."]},
+{"problem":"Find longest substring without repeating characters.","hints":["Do you restart at every index?","Can you track a valid window?","Sliding window technique is useful."]},
+{"problem":"Find first unique character.","hints":["How can you count occurrences?","Do you need multiple passes?","Use a hashmap to track frequency."]},
+{"problem":"Check anagram strings.","hints":["Do characters match in frequency?","Can sorting help compare?","Frequency counting is efficient."]},
+{"problem":"Group anagrams.","hints":["What defines similarity?","Can sorted representation help grouping?","Use hashmap with sorted key."]},
+
+{"problem":"Implement stack.","hints":["How track top element?","What operations needed?","Use array or linked list structure."]},
+{"problem":"Implement queue.","hints":["What order should elements follow?","Can two stacks simulate behavior?","Queue can be implemented using two stacks."]},
+{"problem":"Evaluate postfix expression.","hints":["What order operations follow?","How handle operands?","Stack helps evaluate postfix expressions."]},
+{"problem":"Convert infix to postfix.","hints":["How handle precedence?","What structure stores operators?","Stack is used for conversion."]},
+{"problem":"Check balanced brackets.","hints":["What defines a valid sequence?","How track unmatched brackets?","Use stack to match pairs."]},
+
+{"problem":"Traverse graph BFS.","hints":["How visit nodes level-wise?","What structure stores nodes?","Queue is used in BFS traversal."]},
+{"problem":"Traverse graph DFS.","hints":["How explore deeply?","What prevents revisiting nodes?","Use recursion or stack for DFS."]},
+{"problem":"Find connected components.","hints":["How explore graph fully?","What about disconnected nodes?","DFS or BFS identifies components."]},
+{"problem":"Detect cycle in graph.","hints":["What indicates revisiting node?","Can recursion stack help?","DFS is used for cycle detection."]},
+{"problem":"Find shortest path graph.","hints":["How choose next node?","What defines shortest distance?","Dijkstra’s algorithm finds shortest paths."]},
+
+{"problem":"Find longest increasing subsequence.","hints":["Do elements need to be consecutive?","Can smaller sequences build larger ones?","Dynamic programming tracks lengths efficiently."]},
+{"problem":"Coin change problem.","hints":["Can greedy always work?","Do subproblems overlap?","Dynamic programming ensures optimal result."]},
+{"problem":"Subset sum problem.","hints":["Can elements form target sum?","Are subproblems repeated?","DP or recursion can solve it."]},
+{"problem":"Knapsack problem.","hints":["What constraints matter?","Can overlapping subproblems help?","Dynamic programming maximizes value."]},
+{"problem":"Rod cutting problem.","hints":["Can smaller cuts help?","What maximizes profit?","Dynamic programming finds optimal solution."]},
+
+{"problem":"Find peak element.","hints":["Does order matter?","Can neighbors help locate peak?","Binary search variation works."]},
+{"problem":"Search rotated sorted array.","hints":["Is array fully sorted?","Which half is sorted?","Modified binary search works."]},
+{"problem":"Find kth largest element.","hints":["Do you need full sort?","Can heap help?","Use heap or quickselect."]},
+{"problem":"Top k frequent elements.","hints":["How count frequency?","How select top k efficiently?","Use heap with hashmap."]},
+{"problem":"Sliding window maximum.","hints":["How track max efficiently?","Can deque help maintain order?","Use deque for sliding window."]},
+
+{"problem":"Binary tree height.","hints":["How count levels?","Can recursion help?","DFS computes height."]},
+{"problem":"Check BST.","hints":["What property defines BST?","Can range constraints help?","Use inorder traversal or bounds."]},
+{"problem":"Lowest common ancestor.","hints":["Where paths meet?","Can recursion help?","Traverse tree to find split node."]},
+{"problem":"Level order traversal.","hints":["How traverse level-wise?","What structure helps?","Queue supports BFS traversal."]},
+{"problem":"Diameter of tree.","hints":["What defines longest path?","Can subtree heights help?","Track height and update max."]},
+{"problem":"Find minimum number of jumps to reach end of array.","hints":["Can you track how far you can reach at each step?","Does choosing the farthest reachable index help?","A greedy approach minimizes jumps efficiently."]},
+{"problem":"Check if array can be partitioned into equal sum subsets.","hints":["What total sum is required?","Can you reduce it to subset sum?","Dynamic programming can solve this."]},
+{"problem":"Find maximum product subarray.","hints":["Can negative numbers affect the result?","Should you track both max and min values?","Keep track of current max and min products."]},
+{"problem":"Rotate array by k steps.","hints":["Can reversing parts simplify rotation?","What happens if you reverse entire array first?","Use reverse in three steps to rotate."]},
+{"problem":"Move all zeros to the end.","hints":["Do you need extra space?","Can you shift non-zero elements forward?","Use two-pointer technique in-place."]},
+
+{"problem":"Find intersection point of two linked lists.","hints":["Can lengths help align pointers?","What if pointers traverse both lists?","Two-pointer switching technique works."]},
+{"problem":"Remove nth node from end of linked list.","hints":["Can two pointers maintain a gap?","What offset is required?","Use fast and slow pointer approach."]},
+{"problem":"Merge k sorted linked lists.","hints":["How to pick smallest element efficiently?","Can priority queue help?","Use min heap for merging lists."]},
+{"problem":"Flatten a multilevel linked list.","hints":["How connect child nodes?","Can recursion help flatten structure?","Depth-first traversal helps flatten list."]},
+{"problem":"Copy linked list with random pointer.","hints":["How maintain mapping of nodes?","Can you copy nodes first?","Use hashmap to map old to new nodes."]},
+
+{"problem":"Find longest palindromic substring.","hints":["Does palindrome expand around center?","Can you check around each index?","Expand around center technique works."]},
+{"problem":"Count substrings with unique characters.","hints":["Can sliding window help maintain uniqueness?","What condition shrinks window?","Use sliding window with frequency map."]},
+{"problem":"Check if string contains permutation of another.","hints":["Can frequency matching help?","What if window size is fixed?","Sliding window with character counts works."]},
+{"problem":"Minimum window substring.","hints":["What defines valid window?","Can window expand and shrink dynamically?","Use sliding window with frequency tracking."]},
+{"problem":"Find repeated substring pattern.","hints":["Can string repetition reveal pattern?","What if string is doubled?","Check substring in doubled string."]},
+
+{"problem":"Topological sorting of DAG.","hints":["What determines node order?","Can indegree help processing?","Kahn’s algorithm uses queue and indegree."]},
+{"problem":"Check if graph is bipartite.","hints":["Can nodes be colored in two groups?","What happens on conflict?","Use BFS/DFS coloring method."]},
+{"problem":"Find strongly connected components.","hints":["Can nodes reach each other?","What traversal helps identify components?","Kosaraju’s or Tarjan’s algorithm works."]},
+{"problem":"Detect negative cycle in graph.","hints":["Can distances decrease indefinitely?","Which algorithm detects this?","Bellman-Ford helps detect cycles."]},
+{"problem":"Find articulation points in graph.","hints":["What nodes disconnect graph?","Can DFS track discovery times?","Use low-link values in DFS."]},
+
+{"problem":"Longest common substring.","hints":["Do substrings need continuity?","Can DP track matching lengths?","Dynamic programming helps track matches."]},
+{"problem":"Edit distance between two strings.","hints":["What operations are allowed?","Can subproblems overlap?","DP table builds optimal solution."]},
+{"problem":"Word break problem.","hints":["Can string be segmented?","Do smaller substrings help?","Dynamic programming checks segmentation."]},
+{"problem":"Palindrome partitioning.","hints":["Can string be split into palindromes?","Do subproblems overlap?","Backtracking or DP works."]},
+{"problem":"Longest repeating subsequence.","hints":["Can subsequences overlap?","What relation to LCS?","Modify LCS logic to solve."]},
+
+{"problem":"Check if binary tree is symmetric.","hints":["Do left and right mirror each other?","Can recursion compare nodes?","Mirror comparison solves this."]},
+{"problem":"Find maximum path sum in binary tree.","hints":["Can paths include both children?","How track maximum path?","Use DFS and track global max."]},
+{"problem":"Convert sorted array to BST.","hints":["What element should be root?","Can middle element balance tree?","Recursively build using mid element."]},
+{"problem":"Serialize binary tree.","hints":["How represent null nodes?","Can traversal capture structure?","Use preorder traversal with markers."]},
+{"problem":"Deserialize binary tree.","hints":["How rebuild structure?","Can recursion help reconstruct tree?","Use preorder traversal logic."]},
+
+{"problem":"Find minimum spanning tree using Kruskal.","hints":["How select smallest edges?","How avoid cycles?","Use union-find structure."]},
+{"problem":"Find minimum spanning tree using Prim.","hints":["How expand tree step by step?","What structure selects minimum edge?","Use priority queue."]},
+{"problem":"Travelling salesman problem.","hints":["What defines shortest route?","Can subproblems overlap?","Use DP with bitmasking."]},
+{"problem":"Matrix chain multiplication.","hints":["Does multiplication order matter?","Can subproblems overlap?","DP minimizes multiplication cost."]},
+{"problem":"N-Queens problem.","hints":["Where can queens be safely placed?","What constraints apply?","Backtracking helps find solutions."]},
+
+{"problem":"Sudoku solver.","hints":["What constraints define valid grid?","Can backtracking explore possibilities?","Recursively fill valid numbers."]},
+{"problem":"Word search in grid.","hints":["Can you move in multiple directions?","How track visited cells?","Use DFS with backtracking."]},
+{"problem":"Rat in a maze problem.","hints":["How explore possible paths?","Can recursion help track movement?","Backtracking finds valid paths."]},
+{"problem":"Generate permutations of array.","hints":["Can you swap elements?","How ensure all arrangements?","Backtracking generates permutations."]},
+{"problem":"Generate combinations of numbers.","hints":["How choose elements without repetition?","Can recursion help build combinations?","Backtracking generates combinations."]},
+
+{"problem":"Find GCD of two numbers.","hints":["Can problem size be reduced?","What happens when numbers divide?","Euclidean algorithm is efficient."]},
+{"problem":"Find LCM of two numbers.","hints":["How is it related to GCD?","Can formula help compute it?","Use relation with GCD."]},
+{"problem":"Check if number is prime.","hints":["Do you need to check all numbers?","Can limit reduce checks?","Check divisibility up to sqrt(n)."]},
+{"problem":"Find all primes up to n.","hints":["Can marking help skip numbers?","How eliminate multiples?","Sieve of Eratosthenes works."]},
+{"problem":"Compute power efficiently.","hints":["Can exponent be halved?","Can results be reused?","Use fast exponentiation."]},
+{"problem":"Find subarray with given sum.","hints":["Can prefix sums help track cumulative values?","What if you store previous sums?","Use hashmap to detect required sum efficiently."]},
+{"problem":"Count number of subarrays with sum k.","hints":["Can prefix sums help?","How track previous sums efficiently?","Use hashmap with cumulative sum frequencies."]},
+{"problem":"Find maximum length subarray with equal 0s and 1s.","hints":["Can transformation help simplify?","What if 0 is treated as -1?","Use prefix sum with hashmap."]},
+{"problem":"Find equilibrium index of array.","hints":["What condition defines equilibrium?","Can prefix and suffix sums help?","Compare left and right sums efficiently."]},
+{"problem":"Find leaders in array.","hints":["What defines a leader?","Can scanning from right help?","Track maximum from right side."]},
+
+{"problem":"Check if linked list is palindrome.","hints":["Can you split the list?","How compare both halves?","Reverse second half and compare."]},
+{"problem":"Reorder linked list.","hints":["Can you split list in middle?","How merge two halves?","Reverse second half and merge alternately."]},
+{"problem":"Swap nodes in pairs.","hints":["Can pointer manipulation help?","What happens to next pointers?","Swap adjacent nodes iteratively."]},
+{"problem":"Rotate linked list.","hints":["How handle circular movement?","Can you find new head?","Connect tail and break at right point."]},
+{"problem":"Delete node without head pointer.","hints":["Can you copy next node data?","What happens to next pointer?","Overwrite current node with next node."]},
+
+{"problem":"Find longest valid parentheses substring.","hints":["What defines valid substring?","Can stack help track indices?","Use stack to track valid positions."]},
+{"problem":"Remove duplicate letters from string.","hints":["What ensures smallest lexicographic order?","Can stack help maintain order?","Use stack with visited tracking."]},
+{"problem":"Decode string pattern.","hints":["What pattern defines repetition?","Can stack help decode nested structures?","Use stack to expand encoded strings."]},
+{"problem":"Simplify path string.","hints":["What does '..' represent?","Can stack track directories?","Use stack to resolve path components."]},
+{"problem":"Check if string can form palindrome.","hints":["What frequency condition is needed?","Can counts determine possibility?","At most one odd frequency allowed."]},
+
+{"problem":"Find shortest path in binary matrix.","hints":["Can movement happen in multiple directions?","How track visited cells?","Use BFS for shortest path."]},
+{"problem":"Walls and gates problem.","hints":["Where should traversal start?","Can multi-source BFS help?","Start BFS from all gates."]},
+{"problem":"Rotting oranges problem.","hints":["How infection spreads?","Can BFS simulate time steps?","Use multi-source BFS."]},
+{"problem":"Number of enclaves in grid.","hints":["Which cells cannot reach boundary?","Can DFS mark reachable cells?","Count unvisited land cells."]},
+{"problem":"Surrounded regions problem.","hints":["Which regions are safe?","Can boundary traversal help?","Mark boundary-connected regions first."]},
+
+{"problem":"Longest common prefix.","hints":["How compare strings efficiently?","Can you compare character by character?","Stop when mismatch occurs."]},
+{"problem":"Zigzag string conversion.","hints":["How characters are arranged?","Can you simulate rows?","Use pattern-based indexing."]},
+{"problem":"String to integer conversion.","hints":["What defines valid number?","How handle overflow?","Parse carefully with conditions."]},
+{"problem":"Multiply large numbers as strings.","hints":["Can you simulate multiplication manually?","How handle carry?","Use array to store intermediate results."]},
+{"problem":"Add binary strings.","hints":["How handle carry?","Can you traverse from end?","Simulate binary addition."]},
+
+{"problem":"Find kth smallest in BST.","hints":["What traversal gives sorted order?","Can you count nodes?","Inorder traversal helps find kth element."]},
+{"problem":"Convert BST to sorted list.","hints":["Which traversal gives sorted order?","Can recursion help?","Use inorder traversal."]},
+{"problem":"Flatten binary tree to linked list.","hints":["How rearrange tree structure?","Can recursion help flatten?","Use preorder traversal."]},
+{"problem":"Construct tree from inorder and preorder.","hints":["What defines root?","How split tree?","Use recursion with index mapping."]},
+{"problem":"Check subtree of another tree.","hints":["Can structures be compared?","What traversal helps?","Use DFS to compare subtrees."]},
+
+{"problem":"Minimum cost path in matrix.","hints":["Can you reuse subproblems?","What direction moves allowed?","Use DP to compute minimal cost."]},
+{"problem":"Maximum sum increasing subsequence.","hints":["Does order matter?","Can smaller subsequences help?","DP tracks max sum subsequences."]},
+{"problem":"Longest bitonic subsequence.","hints":["What defines bitonic sequence?","Can LIS and LDS help?","Combine increasing and decreasing sequences."]},
+{"problem":"Egg dropping problem.","hints":["What decisions minimize worst-case?","Can subproblems overlap?","Use DP for optimal strategy."]},
+{"problem":"Partition problem.","hints":["Can array be split equally?","What sum should subsets match?","Reduce to subset sum problem."]},
+
+{"problem":"Design hit counter.","hints":["How track timestamps efficiently?","Can sliding window help?","Use queue to maintain recent hits."]},
+{"problem":"Design circular queue.","hints":["How manage front and rear?","What defines full condition?","Use modular arithmetic."]},
+{"problem":"Design hash map.","hints":["How handle collisions?","Can chaining or probing help?","Use array with collision handling."]},
+{"problem":"Design logger rate limiter.","hints":["How track message timestamps?","Can hashmap store last occurrence?","Allow messages based on time gap."]},
+{"problem":"Design autocomplete system.","hints":["How store prefixes efficiently?","Can trie help?","Use trie with frequency ranking."]},
+
+{"problem":"Find missing ranges.","hints":["What gaps exist between numbers?","Can sorted order help?","Track differences between adjacent numbers."]},
+{"problem":"Insert interval.","hints":["How merge overlapping intervals?","What condition defines overlap?","Merge intervals while inserting."]},
+{"problem":"Merge intervals.","hints":["Can sorting help group intervals?","How detect overlap?","Merge overlapping intervals."]},
+{"problem":"Non-overlapping intervals.","hints":["How minimize removals?","Can greedy help?","Sort by end time and remove overlaps."]},
+{"problem":"Meeting rooms problem.","hints":["Can intervals overlap?","How track ongoing meetings?","Use min heap to track end times."]},
+{"problem":"Find maximum water trapped between bars.","hints":["Can left and right boundaries determine water level?","Do you need to compute max on both sides?","Two-pointer approach can calculate trapped water efficiently."]},
+{"problem":"Container with most water.","hints":["Does width and height both matter?","Can moving pointers help optimize area?","Use two-pointer technique to maximize area."]},
+{"problem":"Largest rectangle in histogram.","hints":["Can you find nearest smaller elements?","What helps track heights efficiently?","Use stack to compute largest rectangle area."]},
+{"problem":"Maximal rectangle in matrix.","hints":["Can matrix rows be treated as histograms?","How reuse histogram logic?","Use stack-based histogram approach row-wise."]},
+{"problem":"Trapping rain water using stack.","hints":["Can stack help find boundaries?","How identify bounded regions?","Use stack to compute trapped water areas."]},
+
+{"problem":"Longest consecutive sequence in array.","hints":["Do you need sorting?","Can you check sequence starts?","Use set for O(n) solution."]},
+{"problem":"Minimum size subarray sum.","hints":["Can window size vary?","How shrink window when condition met?","Use sliding window approach."]},
+{"problem":"Find subarrays divisible by k.","hints":["Can prefix sum help?","What about modulo properties?","Use hashmap with mod values."]},
+{"problem":"Maximum sum circular subarray.","hints":["Can wrap-around cases matter?","How combine max and min subarrays?","Use Kadane’s algorithm variations."]},
+{"problem":"Split array into k subarrays minimizing max sum.","hints":["What defines optimal partition?","Can binary search help?","Use binary search on answer with greedy check."]},
+
+{"problem":"Reconstruct itinerary.","hints":["How ensure lexical order?","Can graph traversal help?","Use DFS with priority queue."]},
+{"problem":"Alien dictionary order.","hints":["What defines ordering rules?","Can graph help represent dependencies?","Topological sorting determines order."]},
+{"problem":"Course schedule problem.","hints":["Can courses form cycle?","How detect dependencies?","Use topological sort or cycle detection."]},
+{"problem":"Course schedule II.","hints":["Can you return valid order?","How process dependencies?","Topological sorting gives valid sequence."]},
+{"problem":"Network delay time.","hints":["How compute shortest time to all nodes?","Can weights affect path?","Use Dijkstra’s algorithm."]},
+
+{"problem":"Find median in data stream.","hints":["How maintain sorted order dynamically?","Can two heaps help balance data?","Use max heap and min heap."]},
+{"problem":"Sliding window median.","hints":["How track median dynamically?","Can heaps or balanced structures help?","Use two heaps with lazy removal."]},
+{"problem":"K closest points to origin.","hints":["How measure distance?","Do you need full sorting?","Use heap to track closest points."]},
+{"problem":"Find k closest elements.","hints":["How compare closeness?","Can binary search help locate window?","Use two pointers or heap."]},
+{"problem":"Rearrange string k distance apart.","hints":["How avoid same characters nearby?","Can frequency tracking help?","Use heap with cooldown tracking."]},
+
+{"problem":"Burst balloons problem.","hints":["Which balloon to burst first?","Can subproblems overlap?","Use DP with interval partitioning."]},
+{"problem":"Palindrome partitioning II.","hints":["How minimize partitions?","Can DP track palindrome substrings?","Use DP for minimum cuts."]},
+{"problem":"Scramble string problem.","hints":["Can strings be split recursively?","Do subproblems repeat?","Use recursion with memoization."]},
+{"problem":"Distinct subsequences count.","hints":["Can subsequences overlap?","How track counts efficiently?","Use DP table for counting."]},
+{"problem":"Interleaving string problem.","hints":["Can two strings combine to form another?","What subproblems exist?","Use DP to track combinations."]},
+
+{"problem":"Serialize and deserialize N-ary tree.","hints":["How represent children nodes?","Can traversal capture structure?","Use BFS or DFS with markers."]},
+{"problem":"Find maximum width of binary tree.","hints":["How measure width per level?","Can indexing help?","Use BFS with position indices."]},
+{"problem":"Find nodes at distance k from target.","hints":["Can tree be treated as graph?","How explore neighbors?","Use BFS with parent tracking."]},
+{"problem":"Binary tree vertical order traversal.","hints":["How group nodes by column?","Can BFS track horizontal distance?","Use hashmap with column indices."]},
+{"problem":"Boundary traversal of tree.","hints":["What defines boundary nodes?","How traverse edges separately?","Combine left, leaves, and right boundaries."]},
+
+{"problem":"Maximum XOR of two numbers.","hints":["Can bits help determine result?","What structure stores prefixes?","Use trie for bit manipulation."]},
+{"problem":"Count bits problem.","hints":["Can previous results help compute new ones?","Is there pattern in binary representation?","Use DP based on bit patterns."]},
+{"problem":"Single number problem.","hints":["Can XOR cancel duplicates?","What property of XOR helps?","Use XOR to isolate unique number."]},
+{"problem":"Find two unique numbers.","hints":["Can XOR separate groups?","How identify differing bit?","Use bit manipulation with XOR."]},
+{"problem":"Power of two check.","hints":["What binary property defines power of two?","Can bit manipulation help?","n & (n-1) equals zero for powers of two."]},
+
+{"problem":"Design LFU cache.","hints":["How track frequency of usage?","What structure maintains order?","Use hashmap with frequency lists."]},
+{"problem":"Design Twitter system.","hints":["How store tweets efficiently?","How merge feeds?","Use heap to combine recent tweets."]},
+{"problem":"Design file system.","hints":["How represent hierarchy?","Can tree structure help?","Use trie-like structure."]},
+{"problem":"Design search autocomplete.","hints":["How store prefixes?","How rank suggestions?","Use trie with frequency counts."]},
+{"problem":"Design parking system.","hints":["How track available slots?","What operations needed?","Use counters for each slot type."]},
+
+{"problem":"Find minimum window subsequence.","hints":["Does subsequence require order?","Can two pointers help track window?","Use forward and backward scanning."]},
+{"problem":"Longest substring with k distinct characters.","hints":["How limit distinct characters?","Can sliding window help?","Use hashmap with window control."]},
+{"problem":"Longest substring after replacement.","hints":["What condition defines valid window?","Can frequency tracking help?","Sliding window with max frequency works."]},
+{"problem":"Check if strings differ by one edit.","hints":["What defines one edit?","Can pointers help compare?","Check insert/delete/replace cases."]},
+{"problem":"String compression problem.","hints":["How represent repeated characters?","Can counts be stored efficiently?","Iterate and compress groups."]},
+{"problem":"Find minimum number of platforms required for trains.","hints":["Can overlapping intervals determine requirement?","What happens when arrival exceeds departure?","Sort arrivals and departures and use two pointers."]},
+{"problem":"Gas station circular tour problem.","hints":["What determines valid starting point?","Can total fuel vs cost matter?","Greedy approach finds valid start."]},
+{"problem":"Candy distribution problem.","hints":["What constraints define distribution?","Can neighbors affect allocation?","Use two-pass greedy approach."]},
+{"problem":"Jump game problem.","hints":["Can you reach end from current position?","What defines reachable range?","Greedy approach tracks max reach."]},
+{"problem":"Jump game II.","hints":["How minimize number of jumps?","Can you track current range?","Greedy approach finds minimum jumps."]},
+
+{"problem":"Find duplicate subtree in binary tree.","hints":["Can subtree structure be serialized?","How detect identical subtrees?","Use hashmap with serialization."]},
+{"problem":"Binary tree maximum width with nulls.","hints":["Can indexing help track positions?","How maintain structure across levels?","Use BFS with index mapping."]},
+{"problem":"Recover binary search tree.","hints":["What happens when nodes are swapped?","Can inorder traversal detect anomalies?","Fix swapped nodes using inorder traversal."]},
+{"problem":"Convert BST to greater tree.","hints":["How accumulate larger values?","Can reverse inorder help?","Traverse right to left and accumulate sums."]},
+{"problem":"Find kth smallest in sorted matrix.","hints":["Is matrix sorted row-wise and column-wise?","Can heap or binary search help?","Use min heap or binary search."]},
+
+{"problem":"Find median of sliding window.","hints":["How maintain sorted window?","Can two heaps help track median?","Use max heap and min heap."]},
+{"problem":"Find smallest range covering elements from k lists.","hints":["How track current range?","Can heap help manage smallest elements?","Use min heap with tracking of max element."]},
+{"problem":"Merge k sorted arrays.","hints":["How pick smallest element across arrays?","Can heap track next elements?","Use min heap to merge arrays."]},
+{"problem":"Reorganize string.","hints":["How avoid adjacent duplicates?","Can frequency tracking help?","Use max heap to rearrange characters."]},
+{"problem":"Task scheduler problem.","hints":["What defines idle time?","Can frequency of tasks matter?","Use greedy scheduling with cooldown."]},
+
+{"problem":"Word ladder problem.","hints":["How transform one word to another?","Can graph representation help?","Use BFS for shortest transformation sequence."]},
+{"problem":"Word ladder II.","hints":["How track all shortest paths?","Can BFS and backtracking combine?","Use BFS with path reconstruction."]},
+{"problem":"Shortest path with obstacles elimination.","hints":["Can obstacles be removed?","What state needs tracking?","Use BFS with state including obstacle count."]},
+{"problem":"Open lock problem.","hints":["How explore combinations?","Can BFS find shortest steps?","Use BFS with visited states."]},
+{"problem":"Knight shortest path on chessboard.","hints":["What moves are allowed?","Can BFS find shortest path?","Use BFS with valid moves."]},
+
+{"problem":"Longest path in DAG.","hints":["Does graph have cycles?","Can topological order help?","Use DP with topological sort."]},
+{"problem":"Find redundant connection in graph.","hints":["What edge creates cycle?","Can union-find help?","Use union-find to detect extra edge."]},
+{"problem":"Accounts merge problem.","hints":["How identify same user?","Can graph or union-find help?","Use union-find with email mapping."]},
+{"problem":"Regions cut by slashes.","hints":["How represent regions?","Can grid expansion help?","Use DFS on expanded grid."]},
+{"problem":"Evaluate division problem.","hints":["Can graph represent equations?","How evaluate unknown values?","Use graph traversal with weights."]},
+
+{"problem":"Burst balloons with maximum coins.","hints":["Which balloon to burst first?","Can subproblems overlap?","Use DP with interval partitioning."]},
+{"problem":"Minimum cost to cut stick.","hints":["Where to cut first?","Can subproblems overlap?","Use DP on intervals."]},
+{"problem":"Stone game problem.","hints":["Can players play optimally?","What determines winning move?","Use DP with game strategy."]},
+{"problem":"Optimal binary search tree.","hints":["What minimizes search cost?","Can subproblems overlap?","Use DP with cost calculation."]},
+{"problem":"Palindrome partitioning III.","hints":["How minimize changes?","Can substrings be reused?","Use DP with cost tracking."]},
+
+{"problem":"Design random pick with weight.","hints":["How represent weights cumulatively?","Can prefix sums help selection?","Use prefix sum with binary search."]},
+{"problem":"Random pick index problem.","hints":["How select uniformly?","Can reservoir sampling help?","Use reservoir sampling technique."]},
+{"problem":"Shuffle array problem.","hints":["How ensure randomness?","Can swapping help?","Use Fisher-Yates shuffle."]},
+{"problem":"Insert delete get random O(1).","hints":["How support constant time operations?","Can array and hashmap combine?","Use list with hashmap mapping."]},
+{"problem":"Insert delete get random duplicates.","hints":["How handle duplicates?","Can mapping track indices?","Use hashmap with list of indices."]},
+
+{"problem":"Find skyline problem.","hints":["What defines skyline change?","Can events be sorted?","Use sweep line with heap."]},
+{"problem":"Rectangle overlap detection.","hints":["What defines overlap?","Can coordinate comparison help?","Check horizontal and vertical overlap."]},
+{"problem":"Perfect rectangle problem.","hints":["Do rectangles cover area exactly?","Can corner counting help?","Track corners and area consistency."]},
+{"problem":"Line sweep interval problems.","hints":["Can events be processed sequentially?","How track active intervals?","Use sweep line algorithm."]},
+{"problem":"Find maximum overlap intervals.","hints":["How track overlapping intervals?","Can sorting events help?","Use sweep line with counters."]},
+
+{"problem":"Check if graph is valid tree.","hints":["Does it contain cycles?","Is it fully connected?","Check edges count and connectivity."]},
+{"problem":"Find Eulerian path in graph.","hints":["What degree conditions apply?","Can graph connectivity matter?","Check odd degree vertices."]},
+{"problem":"Hierholzer algorithm path.","hints":["How traverse edges exactly once?","Can stack help track path?","Use Hierholzer’s algorithm."]},
+{"problem":"Strongly connected components Tarjan.","hints":["Can DFS track discovery times?","What defines component roots?","Use low-link values in DFS."]},
+{"problem":"Kosaraju algorithm SCC.","hints":["Why reverse graph?","What traversal order matters?","Use two-pass DFS."]},
+
+{"problem":"Check valid number string.","hints":["What characters allowed?","How handle decimal and exponent?","Parse using state machine."]},
+{"problem":"Basic calculator problem.","hints":["How handle operators and precedence?","Can stack help evaluation?","Use stack to evaluate expression."]},
+{"problem":"Basic calculator II.","hints":["How handle multiplication and division?","What precedence rules apply?","Use stack with operator handling."]},
+{"problem":"Expression add operators.","hints":["How insert operators?","Can recursion generate possibilities?","Use backtracking to explore expressions."]},
+{"problem":"Different ways to add parentheses.","hints":["Can expression split into subproblems?","Do subexpressions repeat?","Use recursion with memoization."]}
 ]
