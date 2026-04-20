@@ -5,6 +5,10 @@ import { useAuth } from '../context/AuthContext';
 import Button from '../components/Button';
 import { ArrowRight, Brain, Sparkles } from 'lucide-react';
 
+// ADDED START ─────────────────────────────────────────────────────────────────
+import StarBackground from '../components/StarBackground';
+// ADDED END ───────────────────────────────────────────────────────────────────
+
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,17 +29,20 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left Panel - Branding */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 p-12 flex-col justify-between relative overflow-hidden"
       >
         {/* Decorative elements */}
-      
         <div className="absolute top-20 right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl" />
-        
+
+        {/* ADDED START ── twinkling star layer behind all content ─────────── */}
+        <StarBackground />
+        {/* ADDED END ──────────────────────────────────────────────────────── */}
+
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center">
@@ -43,11 +50,11 @@ const LoginPage = () => {
             </div>
             <h1 className="text-3xl font-bold text-white">AlgoMentor</h1>
           </div>
-          
+
           <h2 className="text-5xl font-bold text-white mb-6 leading-tight">
             Build Algorithmic<br />Thinking, Not Just<br />Solutions
           </h2>
-          
+
           <p className="text-indigo-100 text-lg leading-relaxed max-w-md">
             An intelligent mentor that guides you through structured reasoning,
             visual simulations, and adaptive feedback.
@@ -72,8 +79,8 @@ const LoginPage = () => {
         </div>
       </motion.div>
 
-      {/* Right Panel - Login Form */}
-      <motion.div 
+      {/* Right Panel - Login Form (completely unchanged) */}
+      <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
@@ -96,43 +103,28 @@ const LoginPage = () => {
 
             <form onSubmit={handleLogin} className="space-y-5">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
-                  Email
-                </label>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">Email</label>
                 <input
-                  id="email"
-                  type="email"
-                  value={email}
+                  id="email" type="email" value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   data-testid="email-input"
                   className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                  placeholder="alex@example.com"
-                  required
+                  placeholder="alex@example.com" required
                 />
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-2">
-                  Password
-                </label>
+                <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-2">Password</label>
                 <input
-                  id="password"
-                  type="password"
-                  value={password}
+                  id="password" type="password" value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   data-testid="password-input"
                   className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                  placeholder="••••••••"
-                  required
+                  placeholder="••••••••" required
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                className="w-full group" 
-                size="lg"
-                data-testid="login-submit-button"
-              >
+              <Button type="submit" className="w-full group" size="lg" data-testid="login-submit-button">
                 <span>Sign In</span>
                 <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
               </Button>
@@ -147,14 +139,8 @@ const LoginPage = () => {
                   <span className="px-4 bg-slate-50 text-slate-500">Or try a demo</span>
                 </div>
               </div>
-
-              <Button 
-                variant="secondary" 
-                className="w-full mt-6" 
-                size="lg"
-                onClick={handleDemoLogin}
-                data-testid="demo-login-button"
-              >
+              <Button variant="secondary" className="w-full mt-6" size="lg"
+                onClick={handleDemoLogin} data-testid="demo-login-button">
                 Demo Login
               </Button>
             </div>
