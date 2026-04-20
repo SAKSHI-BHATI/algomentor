@@ -70,7 +70,7 @@ const DashboardPage = () => {
         </Card>
 
         {/* Level */}
-        <Card className="p-4 h-[190px] flex flex-col justify-between">
+        <Card className="p-4 h-[200px] flex flex-col justify-between">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-violet-50 rounded-2xl flex items-center justify-center">
               <TrendingUp className="w-6 h-6 text-violet-600" />
@@ -79,10 +79,10 @@ const DashboardPage = () => {
             <div className="flex-1">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-slate-500">Current Level</p>
-                <Badge variant="primary">Level 3</Badge>
+                <Badge variant="primary" className="text-xs px-2 py-1">Level 3</Badge>
               </div>
 
-              <p className="text-2xl font-bold text-slate-900 mt-1">
+              <p className="text-xl font-bold text-slate-900 mt-1">
                 {userProfile.level}
               </p>
             </div>
@@ -92,7 +92,7 @@ const DashboardPage = () => {
         </Card>
 
         {/* TODO (SLIGHTLY BIGGER) */}
-        <TodoCompactCard width="w-full" height="h-[190px]" large />
+        <TodoCompactCard width="w-full" height="h-[205px]" large />
 
       </div>
 

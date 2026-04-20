@@ -18,7 +18,7 @@ const Sidebar = ({ onLogout }) => {
     <motion.div 
       initial={{ x: -20, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="w-64 h-screen bg-white border-r border-slate-200 flex flex-col"
+      className="h-screen bg-white border-r border-slate-200 flex flex-col w-full"
     >
       {/* Logo */}
       <div className="p-6 border-b border-slate-200">

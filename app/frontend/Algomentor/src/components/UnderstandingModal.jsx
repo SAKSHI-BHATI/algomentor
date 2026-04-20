@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
+import { checkUnderstanding } from "../api";
 
 const steps = [
   { activeIndex: 0, map: {}, found: false },
@@ -57,14 +58,17 @@ const UnderstandingModal = ({ onClose }) => {
     }
   }, [state.step, state.mode]);
 
-  const evaluate = () => {
-    const text = state.reflection.toLowerCase();
-    const score =
-      text.length > 100 &&
-      (text.includes('hash') || text.includes('complement'))
-        ? 2
-        : 1;
-    dispatch({ type: 'EVALUATE', payload: score });
+  const evaluate = async () => {
+    try {
+      const text = `Problem: Two Sum | Thought: ${state.reflection}`;
+      const res = await checkUnderstanding(text);
+      const decision = res.result.decision;   // PROCEED / WATCH
+      // Convert to your UI score system
+      const score = decision === "PROCEED" ? 2 : 1;
+      dispatch({ type: 'EVALUATE', payload: score });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const current = steps[state.step];

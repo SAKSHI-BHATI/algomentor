@@ -1,654 +1,272 @@
 [
-{
-"input": "Problem: Two Sum | Thought: i think we need to find two numbers whose sum is target\nmaybe we can store numbers in hashmap and check complement\nnot fully sure but seems like faster than brute force",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe try all pairs using two loops\nidk if that is correct but brute force should work i guess",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: i think use graph traversal here because pairs are like connections\nnot sure tho but feels like graph problem",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: use hashmap to store previous values\nthen check target minus current\nseems optimal i think",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe sort array and then binary search for target difference\nidk if indices will match tho",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: i guess brute force is fine\nlike check each pair and return answer\nnot sure about optimization",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: store elements in map and check if complement exists\nthis avoids nested loops\nmakes sense i think",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i think we just count opening and closing brackets\nif equal then valid maybe",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: use stack push opening and pop when closing comes\nthis ensures correct order\nseems right",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe sort brackets first then compare\nidk sounds weird but maybe works",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i think stack is used because we need last opened bracket\nnot fully sure but logic is LIFO",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i am confused\nmaybe count is enough but order also matters i think",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: we check middle element and divide array\nif smaller go right else left\nthis reduces time i think",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: just scan array from start\nsimple linear search maybe easier",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: i think recursion brute force and also mid logic both can work\nnot sure which better",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: array should be sorted\nthen we can eliminate half using mid\nthis is main idea",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe use hashmap for faster search\nidk if sorting required",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: i think recursion works like fib(n-1)+fib(n-2)\nbut maybe too slow",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: use dp to store previous values\navoids recomputation\nseems efficient",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe binary search can help find nth value\nnot sure how though",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: i think recursion but also maybe dp together\nidk which is correct",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: store results in array\nthen reuse values\nthis avoids repeated calls",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: use bfs or dfs to visit nodes\ndepends on problem maybe",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe sort nodes first then traverse\nnot sure but seems logical",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: use queue for bfs and recursion for dfs\ntrack visited nodes also",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: i think binary search can be used here\nnot sure why tho",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: visit nodes level by level using queue\nthis is bfs i guess",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: i think hashmap but also brute force together maybe\nlike try both idk",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: use stack but also count brackets\nmaybe both needed",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: i am not sure\nmaybe try mid logic but confusing",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: idk maybe use loop\nor recursion both confuse me",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: thoda confuse hu\nmaybe bfs or maybe something else",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: just use two loops and check pairs",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: push opening bracket and pop when match comes",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: divide array into two halves using mid index",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: use dp array to store values",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: use dfs recursion to explore nodes",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe graph traversal also possible idk",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: scan full array maybe easier",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: use hashmap to store sequence",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: apply dp on nodes",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: count brackets only",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i feel like we can treat numbers like nodes and connect sums\nthen maybe run dfs to find path equal to target\nnot fully sure tho",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe keep pushing values in stack and pop when sum matches\nsounds weird but might work idk",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i think we can store seen numbers and check target minus current\nusing map maybe\nthis seems efficient enough",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe dynamic programming can help store pair sums\nlike build table of sums",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i guess sorting and then using two pointers could work\nbut indices part confusing a bit",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe compare first and last bracket directly\nif they match then continue inside",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i think queue can help because we process in order\nso fifo might work here",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: push opening brackets and match closing with last one\nstack makes sense here",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe just check if number of brackets even or odd\nif even then valid i guess",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i feel like recursion can validate patterns\nbut not sure how to track order",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe just iterate through array but skip some indices\nlike jump search maybe",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: i think we pick mid and compare then reduce half\nthis works because sorted array",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe use hashmap for faster lookup of elements\nso no need of mid",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: i feel like dfs on array can find element faster\nlike recursively split",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: divide into halves using mid index and search accordingly",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe store all values in queue and generate next ones\nlike bfs traversal of sequence",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: i think recursion but also maybe use hashmap to cache values\nso repeated calls reduce",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe sort previous numbers and then compute next\nidk sounds off but trying",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: i guess we just keep adding last two numbers using loop\nsimple iteration works",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe binary search can find nth fibonacci quickly\nnot sure logic tho",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: i think we can sort nodes first then visit sequentially\nlike array traversal",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: use queue for bfs and mark visited nodes\nthis avoids revisiting",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe hashmap alone enough to track nodes\nno need traversal",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: i feel recursion might go through nodes randomly\nnot sure if correct traversal",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: explore neighbors using dfs or bfs depending on need",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe sliding window approach works here\nexpand and shrink window to match sum",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i think using array and removing pairs step by step\nmight work somehow",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe random pick elements until target found\nnot efficient but works",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: use dp array and fill values from bottom up\navoids recursion cost",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe binary search tree traversal works same as graph\nnot sure difference",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: idk maybe we can treat this like subset problem\ntry all combinations of numbers until sum matches",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i think storing numbers and checking target minus value could work\nlike use some map structure",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe use recursion tree and explore all paths\neach path sum we check equals target",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: can we use greedy approach here\nlike pick biggest and smallest number",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i feel like using a set to track seen numbers\nthen checking complement might help",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe just remove matching pairs step by step from string\nuntil empty then valid",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i think stack is needed to remember last opening bracket\nthen match closing accordingly",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe just check if brackets are balanced overall\nlike equal count",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i guess queue can be used since we process sequence\nfifo might help here",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe recursion can validate substring patterns\nbut not sure how to ensure order",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe randomly pick index and check value\nrepeat until found",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: i think we should keep dividing array in half using middle\nthen choose correct side",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe dynamic programming can store results of search\nlike reuse past comparisons",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: i feel like scanning every alternate element might help faster\ninstead of full scan",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: use mid index and compare with target to reduce search space",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe generate sequence using stack push pop\nlike keep last two values",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: i think we can use memoization to store computed values\nso recursion becomes faster",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe sort numbers and then calculate sequence\nidk sounds confusing",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: i guess just loop from 0 to n and keep adding previous two\nsimple approach",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe binary tree traversal can generate fibonacci sequence\nlike nodes as values",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe we can just iterate through adjacency list like array\nno need bfs or dfs",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: i think bfs uses queue and dfs uses recursion or stack\nwe visit all nodes",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe sort nodes and visit in sorted order\nthat should traverse graph",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: i feel like dp might help storing visited nodes\nnot sure though",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: traverse neighbors using queue for bfs level by level",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe we can use sliding window and adjust window size until sum matches",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe use hash map to count each bracket type\nthen check if balanced",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe use recursion but without dividing array\njust call again and again",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: use array dp to store results and reuse for next calculation",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe treat graph like tree and always go left then right\nnot sure structure",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i feel like we can just keep subtracting values from target and see if that number exists somewhere\nnot exactly sure how to store but something like that",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe we can convert this into a tree and then search paths that sum to target\nsounds possible but not very sure",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i think we can just keep checking each element with rest of array one by one\nsimple but maybe slow",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: can we use priority queue and always pick smallest numbers first to reach sum",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i guess using dictionary to remember numbers seen so far\nthen checking difference makes sense",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe just reverse string and compare with original brackets\nif same pattern then valid",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i think last opened bracket must close first so stack should help",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: can we use two pointers from both ends to match brackets\nlike start and end comparison",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i feel like just removing valid pairs repeatedly until empty\nmight work but not sure edge cases",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: store opening brackets and check when closing appears if matches last",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe divide array randomly and check both sides recursively",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: i think main idea is sorted array and checking middle element repeatedly",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe use queue and keep pushing halves of array until we find element",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: i feel like just checking every 2nd element might speed up search",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: compare mid with target and reduce search space each time",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe use linked list to store sequence values and keep adding nodes",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: i think each number depends on previous two so storing values helps",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: can we use heap to always get next fibonacci number",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe just call function again and again for previous values\nbut that seems repetitive",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: i feel like binary tree traversal can generate sequence automatically",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe we can just iterate nodes like normal array one by one",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: i think we need to keep track of visited nodes and explore neighbors",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: can we use sorting first then just visit nodes in order",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe recursion randomly explores graph but not sure if complete",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: bfs uses queue and dfs uses recursion or stack for traversal",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe we can just keep subtracting each element from target and check rest array",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: can we use dp to store all possible sums of pairs",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: i think we can track elements using set and check if required value already exists",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe just check if first bracket matches last bracket only",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i guess maintaining order is important so stack seems right",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe we can use recursion but without halving array",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: i think sorted condition allows us to ignore half of elements",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe use queue to store previous two numbers and update",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: storing results in array helps avoid recomputation",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: can we just use hashmap to store nodes and no traversal needed",
-"label": "WATCH"
-},
-{
-"input": "Problem: Graph Traversal | Thought: i think visiting neighbors using bfs ensures level order traversal",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Two Sum | Thought: maybe sort numbers and then try matching from both ends",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: i feel like counting brackets is enough\norder may not matter",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: maybe randomly jumping indices will help faster",
-"label": "WATCH"
-},
-{
-"input": "Problem: Fibonacci | Thought: i think using loop and updating variables is easiest",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe treat graph as matrix and scan rows directly",
-"label": "WATCH"
-},
-{
-"input": "Problem: Two Sum | Thought: can we use recursion tree and stop when sum equals target",
-"label": "WATCH"
-},
-{
-"input": "Problem: Valid Parentheses | Thought: maybe reverse string and check matching pairs",
-"label": "WATCH"
-},
-{
-"input": "Problem: Binary Search | Thought: i think mid calculation and comparison is key part here",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Fibonacci | Thought: maybe store values in map and reuse results later",
-"label": "PROCEED"
-},
-{
-"input": "Problem: Graph Traversal | Thought: maybe use priority queue to visit nodes with smaller value first",
-"label": "WATCH"
-},
-{"input": "Problem: Two Sum | Thought: i will use graph traversal and connect numbers as nodes", "label": "WATCH"},
-{"input": "Problem: Two Sum | Thought: dynamic programming can store all combinations of sums", "label": "WATCH"},
-{"input": "Problem: Two Sum | Thought: binary search can help find pair quickly without sorting", "label": "WATCH"},
-{"input": "Problem: Two Sum | Thought: i will use dfs to explore all pairs recursively", "label": "WATCH"},
-{"input": "Problem: Two Sum | Thought: greedy approach by picking largest numbers first", "label": "WATCH"},
-
-{"input": "Problem: Valid Parentheses | Thought: i will sort the brackets and compare", "label": "WATCH"},
-{"input": "Problem: Valid Parentheses | Thought: use queue because order is not important", "label": "WATCH"},
-{"input": "Problem: Valid Parentheses | Thought: count opening and closing brackets only", "label": "WATCH"},
-{"input": "Problem: Valid Parentheses | Thought: dynamic programming can solve matching patterns", "label": "WATCH"},
-{"input": "Problem: Valid Parentheses | Thought: binary search on brackets to find matches", "label": "WATCH"},
-
-{"input": "Problem: Binary Search | Thought: use hashmap for constant lookup", "label": "WATCH"},
-{"input": "Problem: Binary Search | Thought: graph traversal can locate element faster", "label": "WATCH"},
-{"input": "Problem: Binary Search | Thought: dynamic programming to store search results", "label": "WATCH"},
-{"input": "Problem: Binary Search | Thought: recursion without dividing array", "label": "WATCH"},
-{"input": "Problem: Binary Search | Thought: sort and then apply bfs on array", "label": "WATCH"},
-
-{"input": "Problem: Fibonacci | Thought: binary search can find nth fibonacci number", "label": "WATCH"},
-{"input": "Problem: Fibonacci | Thought: graph traversal to generate sequence", "label": "WATCH"},
-{"input": "Problem: Fibonacci | Thought: sorting previous numbers to get next", "label": "WATCH"},
-{"input": "Problem: Fibonacci | Thought: use heap to always get next fibonacci", "label": "WATCH"},
-{"input": "Problem: Fibonacci | Thought: hashmap alone without recursion or loop", "label": "WATCH"},
-
-{"input": "Problem: Graph Traversal | Thought: sort nodes and traverse sequentially", "label": "WATCH"},
-{"input": "Problem: Graph Traversal | Thought: binary search on nodes to visit them", "label": "WATCH"},
-{"input": "Problem: Graph Traversal | Thought: dynamic programming instead of traversal", "label": "WATCH"},
-{"input": "Problem: Graph Traversal | Thought: use heap to visit smallest node first always", "label": "WATCH"},
-{"input": "Problem: Graph Traversal | Thought: just iterate array representation once", "label": "WATCH"},
-
-{"input": "Problem: Two Sum | Thought: treat as tree and search path equal to target", "label": "WATCH"},
-{"input": "Problem: Two Sum | Thought: recursion generating all subsets then check sum", "label": "WATCH"},
-{"input": "Problem: Two Sum | Thought: sliding window without sorting or constraints", "label": "WATCH"},
-{"input": "Problem: Two Sum | Thought: priority queue to maintain sums dynamically", "label": "WATCH"},
-{"input": "Problem: Two Sum | Thought: use stack push pop until sum matches", "label": "WATCH"},
-
-{"input": "Problem: Valid Parentheses | Thought: reverse string and compare patterns", "label": "WATCH"},
-{"input": "Problem: Valid Parentheses | Thought: use hashmap counting only", "label": "WATCH"},
-{"input": "Problem: Valid Parentheses | Thought: recursion without tracking order", "label": "WATCH"},
-{"input": "Problem: Valid Parentheses | Thought: check only first and last bracket", "label": "WATCH"},
-{"input": "Problem: Valid Parentheses | Thought: use two pointers from ends", "label": "WATCH"},
-
-{"input": "Problem: Binary Search | Thought: random index selection until found", "label": "WATCH"},
-{"input": "Problem: Binary Search | Thought: skip every alternate element", "label": "WATCH"},
-{"input": "Problem: Binary Search | Thought: use queue to explore array", "label": "WATCH"},
-{"input": "Problem: Binary Search | Thought: linear scan but assume faster", "label": "WATCH"},
-{"input": "Problem: Binary Search | Thought: recursion without sorted condition", "label": "WATCH"},
-
-{"input": "Problem: Fibonacci | Thought: treat as graph and traverse nodes", "label": "WATCH"},
-{"input": "Problem: Fibonacci | Thought: binary tree traversal gives sequence directly", "label": "WATCH"},
-{"input": "Problem: Fibonacci | Thought: use stack operations to compute values", "label": "WATCH"},
-{"input": "Problem: Fibonacci | Thought: sort values repeatedly to generate next", "label": "WATCH"},
-{"input": "Problem: Fibonacci | Thought: use dp but without storing previous results", "label": "WATCH"},
-
-{"input": "Problem: Graph Traversal | Thought: use hashmap only no traversal needed", "label": "WATCH"},
-{"input": "Problem: Graph Traversal | Thought: binary search tree logic applies directly", "label": "WATCH"},
-{"input": "Problem: Graph Traversal | Thought: recursion randomly visits nodes", "label": "WATCH"},
-{"input": "Problem: Graph Traversal | Thought: sorting nodes ensures traversal", "label": "WATCH"},
-{"input": "Problem: Graph Traversal | Thought: use sliding window on nodes", "label": "WATCH"}
-
+  {
+    "problem_id": "two_sum",
+    "problem_description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. Each input has exactly one solution and you may not use the same element twice.",
+    "user_thought": "I will use two nested loops to check every pair of numbers. If nums[i] + nums[j] equals target I return [i, j].",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "two_sum",
+    "problem_description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. Each input has exactly one solution and you may not use the same element twice.",
+    "user_thought": "Brute force uses O(n squared). I think I should sort and use two pointers, but wait sorting changes the indices. Maybe I need to save index separately.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "two_sum",
+    "problem_description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. Each input has exactly one solution and you may not use the same element twice.",
+    "user_thought": "I will store each number in a hashmap with its index as value. For each element x I check if target minus x already exists in the map. This is O(n) time and O(n) space.",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "two_sum",
+    "problem_description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. Each input has exactly one solution and you may not use the same element twice.",
+    "user_thought": "I have no idea how to start. I know the answer needs two indices but I don't know how to find the right pair without checking everything.",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "two_sum",
+    "problem_description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. Each input has exactly one solution and you may not use the same element twice.",
+    "user_thought": "I will sort the array and then compare adjacent pairs to find the target sum.",
+    "thinking_state": "off_track"
+  },
+  {
+    "problem_id": "valid_parentheses",
+    "problem_description": "Given a string containing only '(', ')', '{', '}', '[', ']', determine if the input string is valid. Brackets must close in the correct order.",
+    "user_thought": "I will count opening and closing brackets separately. If they are equal then the string is valid.",
+    "thinking_state": "off_track"
+  },
+  {
+    "problem_id": "valid_parentheses",
+    "problem_description": "Given a string containing only '(', ')', '{', '}', '[', ']', determine if the input string is valid. Brackets must close in the correct order.",
+    "user_thought": "I will use a stack. When I see an opening bracket I push it. When I see a closing bracket I check if the top of the stack is the matching opening bracket and pop it. At the end the stack must be empty.",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "valid_parentheses",
+    "problem_description": "Given a string containing only '(', ')', '{', '}', '[', ']', determine if the input string is valid. Brackets must close in the correct order.",
+    "user_thought": "I will iterate through characters and maintain a counter that increments on open and decrements on close.",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "valid_parentheses",
+    "problem_description": "Given a string containing only '(', ')', '{', '}', '[', ']', determine if the input string is valid. Brackets must close in the correct order.",
+    "user_thought": "A counter fails on cases like ({)} because the order matters not just the count. I need something that tracks the most recent unmatched bracket. A stack seems right.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "valid_parentheses",
+    "problem_description": "Given a string containing only '(', ')', '{', '}', '[', ']', determine if the input string is valid. Brackets must close in the correct order.",
+    "user_thought": "I don't know how to handle all three types of brackets simultaneously.",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "longest_substring",
+    "problem_description": "Given a string s, find the length of the longest substring without repeating characters.",
+    "user_thought": "I will generate all substrings using two nested loops and check each one for uniqueness. Return the length of the longest valid one.",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "longest_substring",
+    "problem_description": "Given a string s, find the length of the longest substring without repeating characters.",
+    "user_thought": "I will use a sliding window with left and right pointers and a set to track characters. Expand right until duplicate found, then shrink left until no duplicate. Track max window size.",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "longest_substring",
+    "problem_description": "Given a string s, find the length of the longest substring without repeating characters.",
+    "user_thought": "A window approach seems right. When I find a repeated char I need to move the left pointer. But should I move it by one or jump to just after the previous occurrence of the repeated char?",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "longest_substring",
+    "problem_description": "Given a string s, find the length of the longest substring without repeating characters.",
+    "user_thought": "I'm confused about how to detect when a character repeats inside my current window.",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "longest_substring",
+    "problem_description": "Given a string s, find the length of the longest substring without repeating characters.",
+    "user_thought": "I will sort the string and then count the longest consecutive run of the same character.",
+    "thinking_state": "off_track"
+  },
+  {
+    "problem_id": "climbing_stairs",
+    "problem_description": "You are climbing a staircase that takes n steps to reach the top. Each time you can climb 1 or 2 steps. How many distinct ways can you climb to the top?",
+    "user_thought": "I will use recursion. From step i I can go to i+1 or i+2. Count all ways to reach n.",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "climbing_stairs",
+    "problem_description": "You are climbing a staircase that takes n steps to reach the top. Each time you can climb 1 or 2 steps. How many distinct ways can you climb to the top?",
+    "user_thought": "The number of ways to reach step n is ways(n-1) plus ways(n-2). This is exactly Fibonacci. I will use bottom-up DP with two variables to get O(n) time and O(1) space.",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "climbing_stairs",
+    "problem_description": "You are climbing a staircase that takes n steps to reach the top. Each time you can climb 1 or 2 steps. How many distinct ways can you climb to the top?",
+    "user_thought": "Pure recursion repeats the same subproblems. I should add memoization to cache results for each step so each step is computed only once.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "climbing_stairs",
+    "problem_description": "You are climbing a staircase that takes n steps to reach the top. Each time you can climb 1 or 2 steps. How many distinct ways can you climb to the top?",
+    "user_thought": "I am not sure whether this is a permutations or combinations problem.",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "climbing_stairs",
+    "problem_description": "You are climbing a staircase that takes n steps to reach the top. Each time you can climb 1 or 2 steps. How many distinct ways can you climb to the top?",
+    "user_thought": "I will use BFS to explore all paths from step 0 to step n.",
+    "thinking_state": "off_track"
+  },
+  {
+    "problem_id": "reverse_linked_list",
+    "problem_description": "Given the head of a singly linked list, reverse the list and return the reversed list's head.",
+    "user_thought": "I will collect all node values in an array, reverse the array, then create a new linked list from those values.",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "reverse_linked_list",
+    "problem_description": "Given the head of a singly linked list, reverse the list and return the reversed list's head.",
+    "user_thought": "I will use three pointers: prev initialized to None, curr to head. In each iteration I save curr.next, set curr.next to prev, move prev to curr and curr to saved next. Return prev.",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "reverse_linked_list",
+    "problem_description": "Given the head of a singly linked list, reverse the list and return the reversed list's head.",
+    "user_thought": "I need to reverse the next pointers. If I change curr.next I lose access to the rest of the list so I must save next before changing the pointer.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "reverse_linked_list",
+    "problem_description": "Given the head of a singly linked list, reverse the list and return the reversed list's head.",
+    "user_thought": "I know I need to change pointers but I don't know the order of operations to avoid losing the chain.",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "reverse_linked_list",
+    "problem_description": "Given the head of a singly linked list, reverse the list and return the reversed list's head.",
+    "user_thought": "I will use a stack to push all nodes then pop them in reverse order and re-link them.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "binary_search",
+    "problem_description": "Given a sorted array of distinct integers and a target, return its index or -1 if not found. Must run in O(log n).",
+    "user_thought": "I will scan every element from left to right and return the index when I find the target. This is O(n).",
+    "thinking_state": "off_track"
+  },
+  {
+    "problem_id": "binary_search",
+    "problem_description": "Given a sorted array of distinct integers and a target, return its index or -1 if not found. Must run in O(log n).",
+    "user_thought": "I set left=0 and right=n-1. I compute mid=(left+right)//2. If arr[mid]==target I return mid. If arr[mid] < target I set left=mid+1 else right=mid-1. Repeat until left > right then return -1.",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "binary_search",
+    "problem_description": "Given a sorted array of distinct integers and a target, return its index or -1 if not found. Must run in O(log n).",
+    "user_thought": "Since the array is sorted, dividing the search space in half each time is efficient. I need to handle the termination condition carefully to avoid infinite loops.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "binary_search",
+    "problem_description": "Given a sorted array of distinct integers and a target, return its index or -1 if not found. Must run in O(log n).",
+    "user_thought": "I know the array is sorted but I am not sure how to use that property to find the target faster than linear scan.",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "binary_search",
+    "problem_description": "Given a sorted array of distinct integers and a target, return its index or -1 if not found. Must run in O(log n).",
+    "user_thought": "I will skip every other element to make it faster than O(n).",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "merge_sorted_arrays",
+    "problem_description": "Given two sorted arrays nums1 (with extra space at end) and nums2, merge nums2 into nums1 in-place in sorted order.",
+    "user_thought": "I will concatenate both arrays and then call sort on the result.",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "merge_sorted_arrays",
+    "problem_description": "Given two sorted arrays nums1 (with extra space at end) and nums2, merge nums2 into nums1 in-place in sorted order.",
+    "user_thought": "I will use three pointers starting from the end of both arrays. I place the larger element at the end of nums1 and move pointers left. This avoids overwriting unread elements.",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "merge_sorted_arrays",
+    "problem_description": "Given two sorted arrays nums1 (with extra space at end) and nums2, merge nums2 into nums1 in-place in sorted order.",
+    "user_thought": "Merging from the front risks overwriting elements in nums1. But nums1 has extra space at the end. If I fill from the back I can use the empty space safely.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "merge_sorted_arrays",
+    "problem_description": "Given two sorted arrays nums1 (with extra space at end) and nums2, merge nums2 into nums1 in-place in sorted order.",
+    "user_thought": "I am not sure what in-place means here. Can I use a temporary array or not?",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "merge_sorted_arrays",
+    "problem_description": "Given two sorted arrays nums1 (with extra space at end) and nums2, merge nums2 into nums1 in-place in sorted order.",
+    "user_thought": "I will insert each element of nums2 into the correct sorted position in nums1 by shifting elements.",
+    "thinking_state": "off_track"
+  },
+  {
+    "problem_id": "maximum_subarray",
+    "problem_description": "Given an integer array nums, find the contiguous subarray with the largest sum and return its sum.",
+    "user_thought": "I will check every possible subarray by using two nested loops and track the maximum sum found.",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "maximum_subarray",
+    "problem_description": "Given an integer array nums, find the contiguous subarray with the largest sum and return its sum.",
+    "user_thought": "I will use Kadane's algorithm. I maintain current_sum and max_sum. At each element I decide: extend current subarray or start fresh from current element. current_sum = max(num, current_sum + num).",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "maximum_subarray",
+    "problem_description": "Given an integer array nums, find the contiguous subarray with the largest sum and return its sum.",
+    "user_thought": "The key insight is that if the running sum becomes negative it only hurts future elements. So I should reset the current subarray when sum drops below zero.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "maximum_subarray",
+    "problem_description": "Given an integer array nums, find the contiguous subarray with the largest sum and return its sum.",
+    "user_thought": "I am not sure how to handle arrays with all negative numbers. Should the answer be the least negative element?",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "maximum_subarray",
+    "problem_description": "Given an integer array nums, find the contiguous subarray with the largest sum and return its sum.",
+    "user_thought": "I will sort the array in descending order and sum up elements until the sum decreases.",
+    "thinking_state": "off_track"
+  },
+  {
+    "problem_id": "contains_duplicate",
+    "problem_description": "Given an integer array nums, return true if any value appears at least twice in the array, false if every element is distinct.",
+    "user_thought": "I will compare every pair of elements using two nested for loops and return true if any pair is equal.",
+    "thinking_state": "surface_thinking"
+  },
+  {
+    "problem_id": "contains_duplicate",
+    "problem_description": "Given an integer array nums, return true if any value appears at least twice in the array, false if every element is distinct.",
+    "user_thought": "I will use a hash set. Iterate through nums: if current element is already in set return True, else add it to set. If loop ends return False.",
+    "thinking_state": "optimal_thinking"
+  },
+  {
+    "problem_id": "contains_duplicate",
+    "problem_description": "Given an integer array nums, return true if any value appears at least twice in the array, false if every element is distinct.",
+    "user_thought": "I could sort the array first so duplicates become adjacent and then just check consecutive elements.",
+    "thinking_state": "deep_reasoning"
+  },
+  {
+    "problem_id": "contains_duplicate",
+    "problem_description": "Given an integer array nums, return true if any value appears at least twice in the array, false if every element is distinct.",
+    "user_thought": "I know I need to track seen elements but I am not sure whether to use a set, list, or dictionary.",
+    "thinking_state": "stuck"
+  },
+  {
+    "problem_id": "contains_duplicate",
+    "problem_description": "Given an integer array nums, return true if any value appears at least twice in the array, false if every element is distinct.",
+    "user_thought": "I will count the total number of elements and compare it to the number of unique values using len(set(nums)) != len(nums).",
+    "thinking_state": "deep_reasoning"
+  }
 ]

@@ -53,7 +53,7 @@ function AppRoutes() {
       >
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/problems" element={<ProblemsListPage />} />
-        <Route path="/problems/workspace" element={<ProblemWorkspacePage />} />
+        <Route path="/problems/workspace/:problemId" element={<ProblemWorkspacePage />} />
         <Route path="/simulation" element={<SimulationPage />} />
         <Route path="/solution-review" element={<SolutionReviewPage />} />
       </Route>

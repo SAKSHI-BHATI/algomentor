@@ -1,62 +1,288 @@
 [
   {
-    "input": "Problem: Two Sum\nStudent thought: I will try all pairs using two loops",
-    "output": "This approach checks all possibilities but may be slow. Think about whether you can remember previously seen values to reduce comparisons."
+    "problem_id": "two_sum",
+    "problem_description": "Return indices of two numbers in an array that add up to target.",
+    "user_pseudocode": "I will try all pairs using two nested loops",
+    "thinking_state": "surface_thinking",
+    "next_steps": [
+      "Recognize that your nested loop runs in O(n\u00b2) time. For n=10,000, that is 100 million operations \u2014 too slow to pass time limits.",
+      "Reframe the problem: instead of 'find two numbers that sum to target', think 'for each number x, does (target - x) exist in the array?'. This is a lookup, not a search.",
+      "Build a hashmap as you iterate: store each number\u2192index. Before inserting x, check if (target-x) is already in the map. If yes, you have your answer in O(1)."
+    ]
   },
   {
-    "input": "Problem: Two Sum\nStudent thought: I will sort the array first",
-    "output": "Sorting can help with comparisons, but consider whether sorting affects the original index positions required in the answer."
+    "problem_id": "two_sum",
+    "problem_description": "Return indices of two numbers in an array that add up to target.",
+    "user_pseudocode": "I will sort the array and then use two pointers from both ends",
+    "thinking_state": "deep_reasoning",
+    "next_steps": [
+      "Two pointers on a sorted array finds the pair values in O(n) \u2014 great approach. But sorting rearranges positions, so you no longer know the original indices the problem requires.",
+      "To preserve indices, store tuples of (value, original_index) before sorting, then apply two pointers on the value field and read indices from the tuple.",
+      "Alternatively, skip sorting entirely: a single-pass hashmap stores value\u2192original_index directly and solves the problem in O(n) time without the O(n log n) sorting cost."
+    ]
   },
   {
-    "input": "Problem: Valid Parentheses\nStudent thought: I will count the number of opening and closing brackets",
-    "output": "Counting ensures balance, but reflect on whether it guarantees correct matching order."
+    "problem_id": "two_sum",
+    "problem_description": "Return indices of two numbers in an array that add up to target.",
+    "user_pseudocode": "I will use a hashmap and store number to index as I iterate",
+    "thinking_state": "optimal_thinking",
+    "next_steps": [
+      "Before inserting element x into your map, check whether (target - x) is already present. This order ensures you never accidentally use the same element twice.",
+      "Handle the edge case mentally: if the same value appears twice and target is 2x, your approach naturally handles it because you check before inserting, so the second occurrence finds the first.",
+      "Finalize your return: when complement is found in the map, return [map[target-x], current_index] for the two indices. Your solution is complete at O(n) time and O(n) space."
+    ]
   },
   {
-    "input": "Problem: Valid Parentheses\nStudent thought: I think recursion might work",
-    "output": "Before using recursion, consider if the problem requires tracking the most recent unmatched symbol."
+    "problem_id": "two_sum",
+    "problem_description": "Return indices of two numbers in an array that add up to target.",
+    "user_pseudocode": "I have no idea where to start",
+    "thinking_state": "stuck",
+    "next_steps": [
+      "Start with the brute force: iterate over every pair (i, j) where i < j and check if nums[i] + nums[j] == target. This guarantees a correct answer even if it is slow.",
+      "Now ask: when I am at index i and know nums[i], what exact value am I looking for? The answer is target - nums[i]. This is your complement.",
+      "Next ask: do I need to scan the whole array again to find the complement? No \u2014 if you remember all numbers you have already seen in a set or map, you can look it up in O(1). Build that map as you go."
+    ]
   },
   {
-    "input": "Problem: Binary Search\nStudent thought: I will scan the array from start to end",
-    "output": "This works generally, but think about whether the input has a property that allows you to eliminate half of the search space."
+    "problem_id": "valid_parentheses",
+    "problem_description": "Check if a bracket string has all brackets correctly matched and nested.",
+    "user_pseudocode": "I will count opening and closing brackets and check if they are equal",
+    "thinking_state": "surface_thinking",
+    "next_steps": [
+      "Counter-example: '({)}' has 2 opens and 2 closes but is invalid. Equal counts are necessary but not sufficient \u2014 you need to verify correct nesting order.",
+      "Think about what property makes brackets invalid: a closing bracket that does not match the most recently opened unmatched bracket. You need to track the last unmatched open bracket.",
+      "Use a stack: push opening brackets onto it. When you see a closing bracket, pop from the stack and verify the popped bracket matches. After processing the entire string, the stack must be empty."
+    ]
   },
   {
-    "input": "Problem: Binary Search\nStudent thought: I will split the array into two parts",
-    "output": "Splitting helps, but define a condition that tells you which half can be safely ignored."
+    "problem_id": "valid_parentheses",
+    "problem_description": "Check if a bracket string has all brackets correctly matched and nested.",
+    "user_pseudocode": "I will use a stack and push opening brackets, pop and match on closing brackets",
+    "thinking_state": "optimal_thinking",
+    "next_steps": [
+      "Handle two critical edge cases: if you encounter a closing bracket but the stack is empty, return False immediately (no matching open bracket exists).",
+      "Define a matching map: {')':'(', '}':'{', ']':'['} so you can look up what the corresponding opening bracket should be when checking the stack top.",
+      "After the loop, return True only if the stack is empty. A non-empty stack means there are unclosed opening brackets."
+    ]
   },
   {
-    "input": "Problem: Fibonacci\nStudent thought: I will solve it using recursion",
-    "output": "Recursion expresses the idea well, but consider whether the same subproblems are being solved repeatedly."
+    "problem_id": "valid_parentheses",
+    "problem_description": "Check if a bracket string has all brackets correctly matched and nested.",
+    "user_pseudocode": "I think I need something to track the most recent bracket",
+    "thinking_state": "deep_reasoning",
+    "next_steps": [
+      "The data structure you need is a stack: it gives you the most recently pushed item at any time, which is exactly the most recently opened unmatched bracket.",
+      "Concretely: iterate the string. If the char is an opening bracket push it. If it is a closing bracket, pop the stack and verify the popped char is the matching opener. If mismatch or stack is empty on pop, return False.",
+      "After full iteration, the string is valid if and only if the stack is empty (all opened brackets were matched)."
+    ]
   },
   {
-    "input": "Problem: Fibonacci\nStudent thought: I will store all previous values in an array",
-    "output": "Storing values avoids recomputation. Now think about whether you need to keep all previous results or only a few."
+    "problem_id": "valid_parentheses",
+    "problem_description": "Check if a bracket string has all brackets correctly matched and nested.",
+    "user_pseudocode": "I don't know how to handle three types of brackets at the same time",
+    "thinking_state": "stuck",
+    "next_steps": [
+      "Handle all three bracket types with one simple rule: use a dictionary to map each closing bracket to its expected matching opening bracket: {')':'(', '}':'{', ']':'['}.",
+      "Iterate through the string. If a character is an opening bracket push it onto a stack. If it is a closing bracket, look up its expected match in your dictionary, and check if that match equals the current stack top.",
+      "If at any point the stack is empty when you expect a match, or the top does not match, return False. Return True at the end only if the stack is empty."
+    ]
   },
   {
-    "input": "Problem: Reverse Linked List\nStudent thought: I will create a new list and copy values",
-    "output": "This works, but reflect on whether you can rearrange existing pointers without using extra memory."
+    "problem_id": "longest_substring",
+    "problem_description": "Find the length of the longest substring without repeating characters.",
+    "user_pseudocode": "I will check every substring using two nested loops",
+    "thinking_state": "surface_thinking",
+    "next_steps": [
+      "Checking all substrings is O(n\u00b3) with the inner uniqueness check. This approach discards all progress: when you move the left boundary by one, you recheck characters you already processed.",
+      "Introduce two pointers defining a window [left, right]. Advance right one step at a time. The window stays valid (no repeats) as long as right can expand. When a repeat is found, shrink from left.",
+      "Use a hashmap character\u2192last_seen_index. When s[right] has been seen and its last position is within your window, jump left directly to last_seen[s[right]] + 1, making shrinking O(1) instead of O(n)."
+    ]
   },
   {
-    "input": "Problem: Reverse Linked List\nStudent thought: I am confused about where to start",
-    "output": "Focus on what should happen to the current node’s next pointer during reversal."
+    "problem_id": "longest_substring",
+    "problem_description": "Find the length of the longest substring without repeating characters.",
+    "user_pseudocode": "sliding window with left and right pointer, use a set to track chars in window",
+    "thinking_state": "deep_reasoning",
+    "next_steps": [
+      "Your approach is correct. One optimization: replace the set with a hashmap (char \u2192 last index). When s[right] repeats, instead of moving left one step at a time, jump left to max(left, last_index[s[right]] + 1) instantly.",
+      "Always update the hashmap entry for s[right] to right after the check, so future occurrences know the most recent position.",
+      "Track max_len = max(max_len, right - left + 1) after each step. This gives O(n) time with a single pass."
+    ]
   },
   {
-    "input": "Problem: Graph Traversal\nStudent thought: I will visit nodes randomly",
-    "output": "Random traversal may miss structure. Decide whether exploring depth-wise or level-wise suits the problem goal."
+    "problem_id": "longest_substring",
+    "problem_description": "Find the length of the longest substring without repeating characters.",
+    "user_pseudocode": "I have no idea how to approach this",
+    "thinking_state": "stuck",
+    "next_steps": [
+      "Start by thinking about a window: a contiguous segment of the string defined by a left and right index. Begin with left=0 and right=0.",
+      "Grow the window by moving right forward. If adding s[right] causes a repeat inside the window, shrink from the left until the repeat is resolved.",
+      "At each valid step, compute window size as right - left + 1 and update your maximum. This single-pass approach visits each character at most twice."
+    ]
   },
   {
-    "input": "Problem: Shortest Path in Graph\nStudent thought: I will use DFS",
-    "output": "DFS explores deeply, but consider whether the problem prioritizes reaching the destination in minimum steps."
+    "problem_id": "climbing_stairs",
+    "problem_description": "Count distinct ways to climb n stairs taking 1 or 2 steps at a time.",
+    "user_pseudocode": "I will use recursion to count all paths to step n",
+    "thinking_state": "surface_thinking",
+    "next_steps": [
+      "Your recursive logic is correct: ways(n) = ways(n-1) + ways(n-2). But without caching, you recompute ways(k) exponentially many times, giving O(2^n) time. For n=50 this is computationally infeasible.",
+      "Add memoization: store the result of each computed ways(k) in a dictionary. Before recursing, check if the result is already cached. This reduces time to O(n) with O(n) extra space.",
+      "Better yet, since each state only depends on the previous two, use two variables and compute iteratively: a, b = 1, 1; for each step compute a, b = b, a+b. This is O(n) time and O(1) space."
+    ]
   },
   {
-    "input": "Problem: Array Problem\nStudent thought: I wrote the solution without checking constraints",
-    "output": "Constraints often indicate the intended approach. Re-examine input size limits to validate efficiency."
+    "problem_id": "climbing_stairs",
+    "problem_description": "Count distinct ways to climb n stairs taking 1 or 2 steps at a time.",
+    "user_pseudocode": "I recognize overlapping subproblems and want to use memoization",
+    "thinking_state": "deep_reasoning",
+    "next_steps": [
+      "Memoized recursion is correct and gives O(n) time. You can also do this bottom-up with a dp array: dp[0]=1, dp[1]=1, then dp[i]=dp[i-1]+dp[i-2] for i from 2 to n.",
+      "Space-optimize further: since dp[i] only depends on dp[i-1] and dp[i-2], two variables are enough. Let a, b = dp[i-2], dp[i-1] and update at each step.",
+      "Set your base cases carefully: ways(0)=1 (one way to stand at bottom and do nothing), ways(1)=1, ways(2)=2. Your loop should run from index 2 through n inclusive."
+    ]
   },
   {
-    "input": "Problem: Recursion Problem\nStudent thought: My solution runs infinitely",
-    "output": "Reconsider whether a clear base condition exists that stops further recursive calls."
+    "problem_id": "climbing_stairs",
+    "problem_description": "Count distinct ways to climb n stairs taking 1 or 2 steps at a time.",
+    "user_pseudocode": "I think it is permutations or combinations of 1s and 2s",
+    "thinking_state": "stuck",
+    "next_steps": [
+      "Combinatorics gets complicated here because the number of 1s and 2s in each path varies. Think recursively instead: to reach step n, your last move was either from step n-1 or n-2.",
+      "This means ways(n) = ways(n-1) + ways(n-2). Write out small cases: ways(1)=1, ways(2)=2, ways(3)=3, ways(4)=5. Do you recognize this sequence? It is Fibonacci.",
+      "Now implement it iteratively: start with two variables representing the last two values and update them in a loop up to n. No recursion, no memoization dictionary, just two variables."
+    ]
   },
   {
-    "input": "Problem: Dynamic Programming\nStudent thought: I do not know when to apply DP",
-    "output": "Check if the problem has overlapping subproblems and an optimal substructure property."
+    "problem_id": "reverse_linked_list",
+    "problem_description": "Reverse a singly linked list in-place and return the new head.",
+    "user_pseudocode": "I will collect all values in an array then recreate the list in reverse",
+    "thinking_state": "surface_thinking",
+    "next_steps": [
+      "Collecting values and recreating uses O(n) extra space and creates new nodes instead of reversing the existing ones. Try reversing the actual next pointers in-place.",
+      "Introduce two pointers: prev=None and curr=head. Your goal: make each curr.next point to prev instead of forward.",
+      "The pointer reversal loop is: save nxt=curr.next (so you don't lose the chain), set curr.next=prev, then advance prev=curr and curr=nxt. Repeat until curr is None. Return prev as the new head."
+    ]
+  },
+  {
+    "problem_id": "reverse_linked_list",
+    "problem_description": "Reverse a singly linked list in-place and return the new head.",
+    "user_pseudocode": "I will use prev and curr pointers but I need to save next before changing curr.next",
+    "thinking_state": "deep_reasoning",
+    "next_steps": [
+      "You have the core insight. The exact four-line reversal body is: (1) nxt = curr.next, (2) curr.next = prev, (3) prev = curr, (4) curr = nxt.",
+      "Initialize: prev = None, curr = head. Your loop condition is while curr is not None.",
+      "After the loop, curr is None and prev points to the old tail, which is now the new head. Return prev."
+    ]
+  },
+  {
+    "problem_id": "reverse_linked_list",
+    "problem_description": "Reverse a singly linked list in-place and return the new head.",
+    "user_pseudocode": "I don't know the order of pointer operations",
+    "thinking_state": "stuck",
+    "next_steps": [
+      "Trace through a small example: 1\u21922\u21923\u2192None. After reversal you want 3\u21922\u21921\u2192None. Start at node 1 with prev=None. You want to make 1 point to None (prev). But first save node 2 so you can continue.",
+      "The order that works: temp=curr.next (save forward link), curr.next=prev (flip pointer), prev=curr (advance prev), curr=temp (advance curr using saved forward link).",
+      "After processing all three nodes, curr=None and prev=node 3 which is the new head. Return prev."
+    ]
+  },
+  {
+    "problem_id": "binary_search",
+    "problem_description": "Find the index of target in a sorted array in O(log n). Return -1 if not found.",
+    "user_pseudocode": "I will scan every element from left to right",
+    "thinking_state": "off_track",
+    "next_steps": [
+      "Linear scan is O(n) and ignores the sorted property entirely. The problem requires O(log n) which means you must eliminate half the search space at each step.",
+      "Use two pointers: left=0 and right=len(arr)-1. Compute mid=(left+right)//2 and compare arr[mid] to target.",
+      "If arr[mid] < target, target must be in the right half, so set left=mid+1. If arr[mid] > target, set right=mid-1. If equal, return mid. Repeat while left <= right."
+    ]
+  },
+  {
+    "problem_id": "binary_search",
+    "problem_description": "Find the index of target in a sorted array in O(log n). Return -1 if not found.",
+    "user_pseudocode": "I will use left and right pointers and compare the middle element",
+    "thinking_state": "deep_reasoning",
+    "next_steps": [
+      "Lock in your loop invariant: while left <= right (using <= not <) ensures you examine a single-element range when left and right converge.",
+      "Update correctly: when moving left, use left=mid+1 (not mid) and when moving right use right=mid-1 (not mid). Using mid instead would create an infinite loop when left==right.",
+      "After the loop exits with no match, return -1. Your algorithm is now O(log n) time and O(1) space."
+    ]
+  },
+  {
+    "problem_id": "binary_search",
+    "problem_description": "Find the index of target in a sorted array in O(log n). Return -1 if not found.",
+    "user_pseudocode": "I know the sorted property is useful but I don't know how to use it",
+    "thinking_state": "stuck",
+    "next_steps": [
+      "Sorted order means: all elements left of index i are smaller than arr[i], and all elements right are larger. Use this to cut search space in half.",
+      "Look at the middle element arr[mid]. If arr[mid] == target you are done. If arr[mid] < target, you know target cannot be in the left half, so discard it by setting left=mid+1.",
+      "Each comparison eliminates half the remaining candidates. With n=1024 elements this means at most 10 comparisons. This is O(log n)."
+    ]
+  },
+  {
+    "problem_id": "merge_sorted_arrays",
+    "problem_description": "Merge nums2 into nums1 in-place. nums1 has m+n size with trailing zeros for n elements of nums2.",
+    "user_pseudocode": "I will put all elements in one array and sort it",
+    "thinking_state": "surface_thinking",
+    "next_steps": [
+      "Concatenate and sort is O((m+n)log(m+n)) and wastes the fact that both inputs are already sorted. A proper merge should run in O(m+n).",
+      "Merging from the front is dangerous: you would overwrite unread elements of nums1. The trick is to fill from the back where the trailing zeros are.",
+      "Place three pointers: p1=m-1 (last real element of nums1), p2=n-1 (last element of nums2), p=m+n-1 (write position). Each step, place the larger of nums1[p1] or nums2[p2] at nums1[p] and decrement the appropriate pointers."
+    ]
+  },
+  {
+    "problem_id": "merge_sorted_arrays",
+    "problem_description": "Merge nums2 into nums1 in-place. nums1 has m+n size with trailing zeros for n elements of nums2.",
+    "user_pseudocode": "fill from back using three pointers comparing last elements of each array",
+    "thinking_state": "optimal_thinking",
+    "next_steps": [
+      "Your loop: while p2 >= 0: if p1 >= 0 and nums1[p1] > nums2[p2]: nums1[p]=nums1[p1]; p1-=1 else: nums1[p]=nums2[p2]; p2-=1; p-=1",
+      "You only need to continue the loop while p2 >= 0. If p2 reaches -1 first, all remaining nums1 elements are already in the correct positions.",
+      "If p1 reaches -1 first, the remaining nums2 elements are already smaller than anything in nums1, and the else branch copies them correctly. Your solution handles all cases in O(m+n) time O(1) space."
+    ]
+  },
+  {
+    "problem_id": "maximum_subarray",
+    "problem_description": "Find the contiguous subarray with the largest sum and return its sum.",
+    "user_pseudocode": "I will check every possible subarray and track the maximum sum",
+    "thinking_state": "surface_thinking",
+    "next_steps": [
+      "O(n\u00b2) or O(n\u00b3) approaches recompute partial sums from scratch. A key observation: when extending a subarray, if the running total has gone negative, starting fresh is always better for future elements.",
+      "At each element make a local decision: current_sum = max(num, current_sum + num). This means: if extending hurts (current_sum is negative), start fresh from this element.",
+      "Track max_sum = max(max_sum, current_sum) after each update. Initialize both with nums[0] to handle all-negative arrays. This is Kadane's algorithm: O(n) time O(1) space."
+    ]
+  },
+  {
+    "problem_id": "maximum_subarray",
+    "problem_description": "Find the contiguous subarray with the largest sum and return its sum.",
+    "user_pseudocode": "running sum and reset when negative, track best",
+    "thinking_state": "deep_reasoning",
+    "next_steps": [
+      "When resetting, set current_sum to the current element (not 0). Resetting to 0 would incorrectly skip the current element itself, and would fail on all-negative inputs.",
+      "The update is: current_sum = max(nums[i], current_sum + nums[i]). This captures both choices: start new subarray at i, or extend the existing one.",
+      "Initialize current_sum = nums[0] and max_sum = nums[0] before the loop. Iterate from index 1. This handles the constraint that the subarray must be non-empty."
+    ]
+  },
+  {
+    "problem_id": "contains_duplicate",
+    "problem_description": "Return true if any value appears at least twice in nums.",
+    "user_pseudocode": "I will compare all pairs of elements",
+    "thinking_state": "surface_thinking",
+    "next_steps": [
+      "O(n\u00b2) pair comparison is too slow for large inputs. Instead of checking all pairs, think about the problem as: have I seen this number before in a single forward pass?",
+      "A Python set supports O(1) average add and in-membership test. Create an empty set and iterate: if the current number is already in the set, return True; otherwise add it.",
+      "If you complete the loop without returning True, no duplicate was found: return False. This is O(n) time and O(n) space in the worst case."
+    ]
+  },
+  {
+    "problem_id": "contains_duplicate",
+    "problem_description": "Return true if any value appears at least twice in nums.",
+    "user_pseudocode": "sort first then adjacent comparison",
+    "thinking_state": "deep_reasoning",
+    "next_steps": [
+      "Sorting + adjacent check is O(n log n) time O(1) space. It modifies the array, which may matter in some contexts. Confirm whether in-place sorting is acceptable.",
+      "The hash set approach is O(n) time O(n) space and does not modify the array. For very memory-constrained environments sorting is better; for speed the set is better.",
+      "If you use sorting, the check is: for i in range(1, len(nums)): if nums[i]==nums[i-1]: return True. Return False after the loop."
+    ]
   }
 ]

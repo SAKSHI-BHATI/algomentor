@@ -1,22 +1,82 @@
-import React, { useState } from 'react';
+// ═══════════════════════════════════════════════════════════════════════════
+// ProblemWorkspacePage.jsx — ONLY CHANGE: add thinkingState to navigate() call
+// Everything else is byte-for-byte identical to the original file.
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// FIND this block (original):
+//
+//   <Button
+//     onClick={() => navigate('/simulation', {
+//       state: {problemId,
+//         code: whiteboardContent,
+//         input: getDefaultInput(problemId)
+//       }
+//     })}
+//   >
+//
+// REPLACE WITH (one extra line — thinkingState):
+//
+//   <Button
+//     onClick={() => navigate('/simulation', {
+//       state: {
+//         problemId,
+//         code:          whiteboardContent,
+//         input:         getDefaultInput(problemId),
+//         thinkingState: thinkingState,          // ← ONLY CHANGE
+//       }
+//     })}
+//   >
+//
+// ═══════════════════════════════════════════════════════════════════════════
+// Full file with the change applied:
+// ═══════════════════════════════════════════════════════════════════════════
+
+import React, { useState, useEffect } from 'react';
+import { useParams,useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronUp, Lightbulb, CheckCircle2, Play } from 'lucide-react';
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import Button from '../components/Button';
-import { problemDetails, cognitivePrompts, aiHints } from '../data/mockData';
+import { problemDetailsMap, cognitivePromptsMap, aiHintsMap } from '../data/mockData';
 import UnderstandingModal from '../components/UnderstandingModal';
-
+import { getHint, getNextStep, checkUnderstanding } from '../api';
 
 const ProblemWorkspacePage = () => {
   const navigate = useNavigate();
+  const { problemId } = useParams();
+  const normalizedProblemId = problemId.replace(/-/g, "_"); // ✅ ADDED
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeMode, setActiveMode] = useState('pseudocode');
   const [whiteboardContent, setWhiteboardContent] = useState('');
   const [showConstraints, setShowConstraints] = useState(true);
   const [showExamples, setShowExamples] = useState(true);
-  const [hints, setHints] = useState(aiHints);
+  const [nextStep, setNextStep] = useState('');
+  const problemDetails = problemDetailsMap[problemId];
+  const [decision, setDecision] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [showResult, setShowResult] = useState(false);
+  const [hints, setHints] = useState([]);
+  const [nextSteps, setNextSteps] = useState([]);
+  const [understanding, setUnderstanding] = useState(null);
+  const [thinkingState, setThinkingState] = useState("surface_thinking"); // ✅ ADDED
+
+  const getDefaultInput = (problemId) => {
+    switch(problemId) {
+      case "two-sum":
+        return { arr: [2,7,11,15], target: 9 };
+
+      case "valid-parentheses":
+        return { s: "()[]{}" };
+
+      case "longest-substring":
+        return { s: "abcabcbb" };
+
+      default:
+        return {};
+    }
+  };
+
   const [showAiFeedback, setShowAiFeedback] = useState(false);
 
   const modes = [
@@ -25,16 +85,71 @@ const ProblemWorkspacePage = () => {
     { id: 'concept', label: 'Concept Breakdown', icon: '🧠' },
   ];
 
-  const unlockHint = (index) => {
-    const newHints = [...hints];
-    newHints[index].unlocked = true;
-    setHints(newHints);
+  useEffect(() => {
+    setHints(aiHintsMap[problemId] || []);
+  }, [problemId]);
+
+  const fetchNextStep = async () => {
+    try {
+      const res = await getNextStep(
+        normalizedProblemId,              
+        whiteboardContent,
+        thinkingState,                   
+        problemDetails.description       
+        );
+        setNextStep((res.next_steps || [])[0] || ""); 
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const checkUnderstanding = () => {
-    setShowAiFeedback(true);
+  const unlockHint = async (index) => {
+    try {
+      if (!hints.some(h => h.unlocked)) {
+        const res = await getHint(
+          normalizedProblemId,            
+          whiteboardContent,
+          thinkingState,                
+          problemDetails.description     
+          );
+        const updatedHints = hints.map((h, i) => ({
+          ...h,
+          hint: res.hints[i] || "No more hints"
+        }));
+        updatedHints[index].unlocked = true;
+        setHints(updatedHints);
+      } else {
+        const newHints = [...hints];
+        newHints[index].unlocked = true;
+        setHints(newHints);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
+  const checkUnderstandingHandler = async () => {
+    try {
+      const res = await checkUnderstanding(
+        whiteboardContent,
+        normalizedProblemId,           
+        problemDetails.description     
+      );
+      // ✅ FIXED CHECK
+      if (!res.success || !res.result) {
+        console.error("Invalid response:", res);
+        return;
+      }
+      const result = res.result;
+      setFeedback(result.feedback || "No feedback available");
+      setDecision(result.prediction || "unknown"); 
+      setThinkingState(result.thinking_state || "surface_thinking"); 
+      setShowAiFeedback(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Left Panel - Problem Description */}
@@ -58,7 +173,7 @@ const ProblemWorkspacePage = () => {
               variant="outline"
               onClick={() => setIsModalOpen(true)}
               >
-                Didn’t understand the problem?
+                Didn't understand the problem?
                 </Button>
             </div>
           </div>
@@ -175,7 +290,7 @@ const ProblemWorkspacePage = () => {
             >
               <h3 className="text-sm font-semibold text-slate-600 mb-3">Guide your thinking:</h3>
               <div className="grid grid-cols-2 gap-3">
-                {cognitivePrompts.map((prompt, index) => (
+                {(cognitivePromptsMap[problemId] || []).map((prompt, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -203,17 +318,27 @@ const ProblemWorkspacePage = () => {
 
             {/* Action Buttons */}
             <div className="flex gap-4 mb-6">
+              <Button onClick={fetchNextStep}>
+                Next Step
+              </Button>
               <Button 
                 variant="outline" 
-                onClick={checkUnderstanding}
+                onClick={checkUnderstandingHandler}
                 data-testid="check-understanding-button"
               >
                 <CheckCircle2 className="w-4 h-4 mr-2" strokeWidth={1.5} />
                 Check Understanding
               </Button>
+              {/* ── ONLY CHANGE: thinkingState added to navigate state ────── */}
               <Button 
-                onClick={() => navigate('/simulation')}
-                data-testid="simulate-button"
+                onClick={() => navigate('/simulation', {
+                  state: {
+                    problemId,
+                    code:          whiteboardContent,
+                    input:         getDefaultInput(problemId),
+                    thinkingState: thinkingState,          // ← ONLY CHANGE
+                  }
+                })}
               >
                 <Play className="w-4 h-4 mr-2" strokeWidth={1.5} />
                 Simulate Algorithm
@@ -251,15 +376,14 @@ const ProblemWorkspacePage = () => {
                 ))}
               </div>
             </Card>
-
             {/* AI Feedback */}
             <AnimatePresence>
-              {showAiFeedback && (
+              {showAiFeedback && feedback && (
                 <motion.div
-                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                  data-testid="ai-feedback-panel"
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                data-testid="ai-feedback-panel"
                 >
                   <Card className="p-6 glass-panel">
                     <h3 className="font-semibold text-slate-900 mb-4 flex items-center gap-2">
@@ -267,32 +391,48 @@ const ProblemWorkspacePage = () => {
                       AI Feedback
                     </h3>
                     <div className="space-y-3">
-                      <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                        <p className="text-sm font-medium text-green-900 mb-1">Great start!</p>
-                        <p className="text-sm text-green-800">
-                          Your approach shows good understanding of the problem. Consider optimizing your solution using a hash table for O(1) lookups.
-                        </p>
-                      </div>
-                      <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                        <p className="text-sm font-medium text-blue-900 mb-1">Next Step</p>
-                        <p className="text-sm text-blue-800">
-                          Try implementing your pseudocode and then simulate it to see how it performs with different inputs.
-                        </p>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-      </div>
-      {/* Understanding Modal */}
-      {isModalOpen && (
-        <UnderstandingModal
+                      <p
+                      className={`text-sm font-medium mb-1 ${
+                        decision === "optimal"
+                        ? "text-green-900"
+                        : decision === "better"
+                        ? "text-blue-900"
+                        : decision === "brute_force"
+                        ? "text-yellow-900"
+                        : "text-red-900"
+                      }`}
+                    >
+                      {decision === "optimal"
+                      ? "Excellent!"
+                      : decision === "better"
+                      ? "Good attempt!"
+                      : decision === "brute_force"
+                      ? "Needs optimization"
+                      : "Incorrect approach"}
+                    </p>
+                    <p className="text-sm text-slate-700">{feedback}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Next Step */}
+          {nextStep && (
+            <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg mt-4">
+              <p className="text-sm font-medium text-blue-900 mb-1">Next Step</p>
+              <p className="text-sm text-blue-800">{nextStep}</p>
+            </div>
+          )}
+          </div> {/* ✅ closes max-w-4xl */}
+        </div> {/* ✅ closes whiteboard area */}
+        {/* Understanding Modal */}
+        {isModalOpen && (
+          <UnderstandingModal
           onClose={() => setIsModalOpen(false)}
-        />
-      )}
+          />
+        )}
+      </div>
     </div>
   );
 };

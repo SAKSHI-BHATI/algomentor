@@ -7,7 +7,7 @@ import { Search } from 'lucide-react';
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import Button from '../components/Button';
-
+import { problemsList } from '../data/mockData';
 /* ---------------------------------- */
 /* Mock Data                          */
 /* ---------------------------------- */
@@ -99,15 +99,16 @@ const useDebouncedValue = (value, delay = 300) => {
 /* ---------------------------------- */
 
 const ProblemCard = React.memo(({ problem, onSolve }) => {
+  const handleClick = useCallback(() => {
+    onSolve(problem.id);
+  }, [onSolve, problem.id]);
   const difficultyColor = {
     Easy: 'bg-green-100 text-green-700',
     Medium: 'bg-amber-100 text-amber-700',
     Hard: 'bg-rose-100 text-rose-700',
   };
 
-  const handleClick = useCallback(() => {
-    onSolve(problem.id);
-  }, [onSolve, problem.id]);
+ 
 
   return (
     <motion.div
@@ -172,7 +173,8 @@ const ProblemsListPage = () => {
   const debouncedSearch = useDebouncedValue(searchQuery, 300);
 
   const filteredProblems = useMemo(() => {
-    return MOCK_PROBLEMS.filter((problem) => {
+    return problemsList.filter((problem) => {
+      
       const matchesDifficulty =
         activeDifficulty === 'All' ||
         problem.difficulty === activeDifficulty;
@@ -186,11 +188,12 @@ const ProblemsListPage = () => {
       return matchesDifficulty && matchesSearch;
     });
   }, [debouncedSearch, activeDifficulty]);
-
   const handleSolve = useCallback(
-    () => navigate('/problems/workspace'),
-    [navigate]
-  );
+  (problemId) => {
+    navigate(`/problems/workspace/${problemId}`);
+  },
+  [navigate]
+);
 
   const difficultyFilters = ['All', 'Easy', 'Medium', 'Hard'];
 
