@@ -52,3 +52,6 @@ Thumbs.db
 # =========================
 *.tmp
 *.bak
+
+*.safetensors
+AI_engine/trained_models/
