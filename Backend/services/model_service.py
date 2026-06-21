@@ -39,20 +39,26 @@ class ModelService:
         except Exception as e:
             return {"error": str(e)}
 
-    def evaluate_understanding(self,text):
-        from AI_engine.model_logic.understanding_model import predict as understanding_predict
+    def evaluate_understanding(self, text, problem=""):
+        try:
+            from AI_engine.model_logic.understanding_model import predict as understanding_predict
 
-        result = understanding_predict(text)
-        decision = result["prediction"]
-        if decision == "PROCEED":
+            result = understanding_predict(text, problem=problem)
+            decision = result["prediction"]
+            if decision == "PROCEED":
+                return {
+                    "decision": "PROCEED",
+                    "feedback": "Great start! Your approach looks correct."
+                }
+            else:
+                return {
+                    "decision": "WATCH",
+                    "feedback": "Your approach needs improvement. Try reviewing the concept again."
+                }
+        except Exception as e:
             return {
-                "decision": "PROCEED",
-                "feedback": "Great start! Your approach looks correct."
+                "decision": "WATCH",
+                "feedback": f"Could not evaluate understanding. Error: {str(e)}"
             }
-        else:
-            return {
-            "decision": "WATCH",
-            "feedback": "Your approach needs improvement. Try reviewing the concept again."
-        }
 
 model_service = ModelService()

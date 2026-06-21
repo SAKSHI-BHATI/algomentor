@@ -1,62 +1,675 @@
 [
   {
-    "input": "Problem: Two Sum\nStudent thought: I will try all pairs using two loops",
-    "output": "This approach checks all possibilities but may be slow. Think about whether you can remember previously seen values to reduce comparisons."
+    "problem_type": "two_sum",
+    "problem": "Two Sum",
+    "stage": "state_setup",
+    "input_pseudocode": "I want to find two numbers whose sum is target",
+    "next_steps": [
+      {"line": "create a map called seen_values", "purpose": "store earlier numbers for fast lookup"},
+      {"line": "start with seen_values as empty", "purpose": "prepare memory before iterating"}
+    ],
+    "explanation": "Before checking complements, the student needs a structure that remembers previous values."
   },
   {
-    "input": "Problem: Two Sum\nStudent thought: I will sort the array first",
-    "output": "Sorting can help with comparisons, but consider whether sorting affects the original index positions required in the answer."
+    "problem_type": "two_sum",
+    "problem": "Two Sum",
+    "stage": "iteration",
+    "input_pseudocode": "seen_values is empty",
+    "next_steps": [
+      {"line": "for each number with its index in the array", "purpose": "visit every candidate once"},
+      {"line": "process one number at a time", "purpose": "set up the single-pass solution"}
+    ],
+    "explanation": "After setup, the bridge is a loop that scans the array once."
   },
   {
-    "input": "Problem: Valid Parentheses\nStudent thought: I will count the number of opening and closing brackets",
-    "output": "Counting ensures balance, but reflect on whether it guarantees correct matching order."
+    "problem_type": "two_sum",
+    "problem": "Two Sum",
+    "stage": "compute_helper",
+    "input_pseudocode": "for each number in the array",
+    "next_steps": [
+      {"line": "set complement = target - current_number", "purpose": "compute the missing partner"},
+      {"line": "name the needed value before checking the map", "purpose": "prepare the lookup"}
+    ],
+    "explanation": "A useful next line makes the missing partner explicit."
   },
   {
-    "input": "Problem: Valid Parentheses\nStudent thought: I think recursion might work",
-    "output": "Before using recursion, consider if the problem requires tracking the most recent unmatched symbol."
+    "problem_type": "two_sum",
+    "problem": "Two Sum",
+    "stage": "decision_step",
+    "input_pseudocode": "set complement = target - current_number",
+    "next_steps": [
+      {"line": "if complement exists in seen_values", "purpose": "check whether the answer is already available"},
+      {"line": "if the needed value was seen before", "purpose": "express the key decision"}
+    ],
+    "explanation": "The student is near the main check and needs the condition that confirms a match."
   },
   {
-    "input": "Problem: Binary Search\nStudent thought: I will scan the array from start to end",
-    "output": "This works generally, but think about whether the input has a property that allows you to eliminate half of the search space."
+    "problem_type": "two_sum",
+    "problem": "Two Sum",
+    "stage": "state_update",
+    "input_pseudocode": "if complement does not exist yet",
+    "next_steps": [
+      {"line": "store current_number with its index in seen_values", "purpose": "save information for future elements"},
+      {"line": "add the current value after the check", "purpose": "avoid pairing a number with itself too early"}
+    ],
+    "explanation": "If the pair is not found, the current item becomes useful state for later."
   },
   {
-    "input": "Problem: Binary Search\nStudent thought: I will split the array into two parts",
-    "output": "Splitting helps, but define a condition that tells you which half can be safely ignored."
+    "problem_type": "two_sum",
+    "problem": "Two Sum",
+    "stage": "return_step",
+    "input_pseudocode": "if complement exists in seen_values",
+    "next_steps": [
+      {"line": "return index of complement and current index", "purpose": "finish once the pair is found"},
+      {"line": "output the two matching positions", "purpose": "turn the condition into an answer"}
+    ],
+    "explanation": "After the main condition succeeds, the next line should produce the result."
+  },
+
+  {
+    "problem_type": "parentheses",
+    "problem": "Valid Parentheses",
+    "stage": "state_setup",
+    "input_pseudocode": "I need to check bracket order",
+    "next_steps": [
+      {"line": "create an empty stack", "purpose": "track unmatched opening brackets"},
+      {"line": "prepare a matching map for closing to opening brackets", "purpose": "support validation"}
+    ],
+    "explanation": "Order matters here, so a stack is the key setup step."
   },
   {
-    "input": "Problem: Fibonacci\nStudent thought: I will solve it using recursion",
-    "output": "Recursion expresses the idea well, but consider whether the same subproblems are being solved repeatedly."
+    "problem_type": "parentheses",
+    "problem": "Valid Parentheses",
+    "stage": "iteration",
+    "input_pseudocode": "stack is empty",
+    "next_steps": [
+      {"line": "for each symbol in the string", "purpose": "check characters one by one"},
+      {"line": "inspect every bracket in order", "purpose": "preserve sequence information"}
+    ],
+    "explanation": "The student must process brackets in sequence."
   },
   {
-    "input": "Problem: Fibonacci\nStudent thought: I will store all previous values in an array",
-    "output": "Storing values avoids recomputation. Now think about whether you need to keep all previous results or only a few."
+    "problem_type": "parentheses",
+    "problem": "Valid Parentheses",
+    "stage": "state_update",
+    "input_pseudocode": "for each symbol in the string",
+    "next_steps": [
+      {"line": "if symbol is an opening bracket then push it onto the stack", "purpose": "remember unmatched openings"},
+      {"line": "store opening brackets for later matching", "purpose": "delay validation until a closing bracket appears"}
+    ],
+    "explanation": "Openings should be saved until a closing bracket is encountered."
   },
   {
-    "input": "Problem: Reverse Linked List\nStudent thought: I will create a new list and copy values",
-    "output": "This works, but reflect on whether you can rearrange existing pointers without using extra memory."
+    "problem_type": "parentheses",
+    "problem": "Valid Parentheses",
+    "stage": "decision_step",
+    "input_pseudocode": "if symbol is a closing bracket",
+    "next_steps": [
+      {"line": "if stack is empty or top of stack does not match symbol then return false", "purpose": "reject wrong order immediately"},
+      {"line": "otherwise pop the top opening bracket", "purpose": "remove a valid pair"}
+    ],
+    "explanation": "The core bridge is a condition that checks whether the current closing symbol matches the latest opening."
   },
   {
-    "input": "Problem: Reverse Linked List\nStudent thought: I am confused about where to start",
-    "output": "Focus on what should happen to the current node’s next pointer during reversal."
+    "problem_type": "parentheses",
+    "problem": "Valid Parentheses",
+    "stage": "return_step",
+    "input_pseudocode": "all symbols are processed",
+    "next_steps": [
+      {"line": "return true if the stack is empty", "purpose": "accept only if every opening was matched"},
+      {"line": "if any opening bracket remains then return false", "purpose": "catch leftover unmatched symbols"}
+    ],
+    "explanation": "At the end, the stack tells whether every bracket was matched."
+  },
+
+  {
+    "problem_type": "binary_search",
+    "problem": "Binary Search",
+    "stage": "state_setup",
+    "input_pseudocode": "the array is sorted",
+    "next_steps": [
+      {"line": "set left = 0", "purpose": "start from the first index"},
+      {"line": "set right = last index of the array", "purpose": "cover the full search space"}
+    ],
+    "explanation": "Binary search begins by defining the active range."
   },
   {
-    "input": "Problem: Graph Traversal\nStudent thought: I will visit nodes randomly",
-    "output": "Random traversal may miss structure. Decide whether exploring depth-wise or level-wise suits the problem goal."
+    "problem_type": "binary_search",
+    "problem": "Binary Search",
+    "stage": "iteration",
+    "input_pseudocode": "left and right are ready",
+    "next_steps": [
+      {"line": "while left is less than or equal to right", "purpose": "keep searching while a range remains"},
+      {"line": "repeat while the search space is valid", "purpose": "control the narrowing process"}
+    ],
+    "explanation": "The next bridge is the loop that continues while a valid interval remains."
   },
   {
-    "input": "Problem: Shortest Path in Graph\nStudent thought: I will use DFS",
-    "output": "DFS explores deeply, but consider whether the problem prioritizes reaching the destination in minimum steps."
+    "problem_type": "binary_search",
+    "problem": "Binary Search",
+    "stage": "compute_helper",
+    "input_pseudocode": "while left is less than or equal to right",
+    "next_steps": [
+      {"line": "set mid = floor((left + right) / 2)", "purpose": "inspect the middle element"},
+      {"line": "choose the middle position of the current range", "purpose": "prepare the comparison"}
+    ],
+    "explanation": "Before deciding which side to keep, the student needs a middle index."
   },
   {
-    "input": "Problem: Array Problem\nStudent thought: I wrote the solution without checking constraints",
-    "output": "Constraints often indicate the intended approach. Re-examine input size limits to validate efficiency."
+    "problem_type": "binary_search",
+    "problem": "Binary Search",
+    "stage": "decision_step",
+    "input_pseudocode": "set mid = floor((left + right) / 2)",
+    "next_steps": [
+      {"line": "if value at mid equals target then return mid", "purpose": "finish when the target is found"},
+      {"line": "compare the middle value with target", "purpose": "decide how to shrink the range"}
+    ],
+    "explanation": "The key bridge is the comparison between the target and the middle value."
   },
   {
-    "input": "Problem: Recursion Problem\nStudent thought: My solution runs infinitely",
-    "output": "Reconsider whether a clear base condition exists that stops further recursive calls."
+    "problem_type": "binary_search",
+    "problem": "Binary Search",
+    "stage": "state_update",
+    "input_pseudocode": "compare middle value with target",
+    "next_steps": [
+      {"line": "if middle value is smaller than target then move left to mid + 1", "purpose": "discard the left half including mid"},
+      {"line": "otherwise move right to mid - 1", "purpose": "discard the right half including mid"}
+    ],
+    "explanation": "After the comparison, one half of the range can be removed."
   },
   {
-    "input": "Problem: Dynamic Programming\nStudent thought: I do not know when to apply DP",
-    "output": "Check if the problem has overlapping subproblems and an optimal substructure property."
+    "problem_type": "binary_search",
+    "problem": "Binary Search",
+    "stage": "return_step",
+    "input_pseudocode": "while loop is finished",
+    "next_steps": [
+      {"line": "return -1", "purpose": "report that the target does not exist"},
+      {"line": "output not found", "purpose": "handle the case where the range becomes empty"}
+    ],
+    "explanation": "If the loop ends without finding the target, the answer is failure."
+  },
+
+  {
+    "problem_type": "fibonacci",
+    "problem": "Fibonacci Number",
+    "stage": "base_case",
+    "input_pseudocode": "I want fib of n",
+    "next_steps": [
+      {"line": "if n is 0 or 1 then return n", "purpose": "stop on the smallest inputs"},
+      {"line": "handle the smallest Fibonacci values first", "purpose": "make the recurrence safe"}
+    ],
+    "explanation": "The recurrence needs base cases before any transition is useful."
+  },
+  {
+    "problem_type": "fibonacci",
+    "problem": "Fibonacci Number",
+    "stage": "state_setup",
+    "input_pseudocode": "base case is handled",
+    "next_steps": [
+      {"line": "set prev = 0 and curr = 1", "purpose": "track the last two Fibonacci values"},
+      {"line": "prepare two running values for iteration", "purpose": "avoid recomputation"}
+    ],
+    "explanation": "An iterative Fibonacci solution needs state for the last two numbers."
+  },
+  {
+    "problem_type": "fibonacci",
+    "problem": "Fibonacci Number",
+    "stage": "iteration",
+    "input_pseudocode": "prev and curr are ready",
+    "next_steps": [
+      {"line": "repeat from 2 up to n", "purpose": "build larger answers from smaller ones"},
+      {"line": "for each position from 2 to n", "purpose": "advance the sequence step by step"}
+    ],
+    "explanation": "Once setup is complete, the student needs the loop that grows the sequence."
+  },
+  {
+    "problem_type": "fibonacci",
+    "problem": "Fibonacci Number",
+    "stage": "state_update",
+    "input_pseudocode": "for each position from 2 to n",
+    "next_steps": [
+      {"line": "set next_value = prev + curr", "purpose": "compute the new Fibonacci value"},
+      {"line": "move prev to curr and curr to next_value", "purpose": "shift the window forward"}
+    ],
+    "explanation": "The bridge is the transition that combines the previous two values."
+  },
+  {
+    "problem_type": "fibonacci",
+    "problem": "Fibonacci Number",
+    "stage": "return_step",
+    "input_pseudocode": "the loop is finished",
+    "next_steps": [
+      {"line": "return curr", "purpose": "output the nth Fibonacci number"},
+      {"line": "return the latest computed value", "purpose": "finish the iterative process"}
+    ],
+    "explanation": "After all updates, the current running value holds the answer."
+  },
+
+  {
+    "problem_type": "linked_list_reverse",
+    "problem": "Reverse Linked List",
+    "stage": "state_setup",
+    "input_pseudocode": "I need to reverse the pointers",
+    "next_steps": [
+      {"line": "set prev = null and current = head", "purpose": "prepare two pointers for reversal"},
+      {"line": "start one pointer behind the list and one at the head", "purpose": "allow link reversal"}
+    ],
+    "explanation": "Reversal starts with two pointers representing the reversed and unreversed parts."
+  },
+  {
+    "problem_type": "linked_list_reverse",
+    "problem": "Reverse Linked List",
+    "stage": "iteration",
+    "input_pseudocode": "prev and current are ready",
+    "next_steps": [
+      {"line": "while current is not null", "purpose": "continue until all nodes are reversed"},
+      {"line": "repeat while there are nodes left to process", "purpose": "control pointer movement"}
+    ],
+    "explanation": "The student next needs the loop that processes nodes one by one."
+  },
+  {
+    "problem_type": "linked_list_reverse",
+    "problem": "Reverse Linked List",
+    "stage": "compute_helper",
+    "input_pseudocode": "while current is not null",
+    "next_steps": [
+      {"line": "store next_node = current.next", "purpose": "avoid losing the rest of the list"},
+      {"line": "save the next pointer before changing current.next", "purpose": "protect the remaining nodes"}
+    ],
+    "explanation": "The next bridge must protect the pointer to the unreversed remainder."
+  },
+  {
+    "problem_type": "linked_list_reverse",
+    "problem": "Reverse Linked List",
+    "stage": "state_update",
+    "input_pseudocode": "next_node is saved",
+    "next_steps": [
+      {"line": "point current.next to prev", "purpose": "reverse one link"},
+      {"line": "move prev to current and current to next_node", "purpose": "advance the pointers"}
+    ],
+    "explanation": "After saving the next node, the student can safely reverse and advance."
+  },
+  {
+    "problem_type": "linked_list_reverse",
+    "problem": "Reverse Linked List",
+    "stage": "return_step",
+    "input_pseudocode": "current becomes null",
+    "next_steps": [
+      {"line": "return prev", "purpose": "the previous pointer is the new head"},
+      {"line": "output prev as the reversed list head", "purpose": "finish the reversal"}
+    ],
+    "explanation": "When traversal ends, prev points to the fully reversed list."
+  },
+
+  {
+    "problem_type": "graph_shortest_path",
+    "problem": "Shortest Path in Unweighted Graph",
+    "stage": "state_setup",
+    "input_pseudocode": "I need minimum number of steps",
+    "next_steps": [
+      {"line": "create a queue and a visited set", "purpose": "prepare breadth-first search"},
+      {"line": "track nodes to explore level by level", "purpose": "support shortest-path discovery"}
+    ],
+    "explanation": "For an unweighted graph, BFS setup is the right bridge."
+  },
+  {
+    "problem_type": "graph_shortest_path",
+    "problem": "Shortest Path in Unweighted Graph",
+    "stage": "compute_helper",
+    "input_pseudocode": "queue and visited set exist",
+    "next_steps": [
+      {"line": "enqueue the start node with distance 0", "purpose": "begin the search from the source"},
+      {"line": "mark the start node as visited", "purpose": "avoid processing it again"}
+    ],
+    "explanation": "The first frontier must be initialized before traversal begins."
+  },
+  {
+    "problem_type": "graph_shortest_path",
+    "problem": "Shortest Path in Unweighted Graph",
+    "stage": "iteration",
+    "input_pseudocode": "start node is in the queue",
+    "next_steps": [
+      {"line": "while queue is not empty", "purpose": "keep exploring reachable nodes"},
+      {"line": "repeat while there are frontier nodes left", "purpose": "continue BFS"}
+    ],
+    "explanation": "After initialization, the traversal loop is the next bridge."
+  },
+  {
+    "problem_type": "graph_shortest_path",
+    "problem": "Shortest Path in Unweighted Graph",
+    "stage": "decision_step",
+    "input_pseudocode": "remove current node from queue",
+    "next_steps": [
+      {"line": "for each neighbor of current node", "purpose": "expand the search frontier"},
+      {"line": "if neighbor has not been visited then add it to queue with distance + 1", "purpose": "discover new shortest paths"}
+    ],
+    "explanation": "The useful next line should move from the current node to its neighbors."
+  },
+  {
+    "problem_type": "graph_shortest_path",
+    "problem": "Shortest Path in Unweighted Graph",
+    "stage": "return_step",
+    "input_pseudocode": "current node is the destination",
+    "next_steps": [
+      {"line": "return current distance", "purpose": "the first arrival gives the shortest path"},
+      {"line": "output the number of steps taken so far", "purpose": "finish immediately on success"}
+    ],
+    "explanation": "In BFS, the first time the destination is reached is the shortest distance."
+  },
+
+  {
+    "problem_type": "graph_traversal",
+    "problem": "Graph Traversal",
+    "stage": "state_setup",
+    "input_pseudocode": "I want to visit all reachable nodes",
+    "next_steps": [
+      {"line": "create a visited set", "purpose": "avoid revisiting the same node"},
+      {"line": "choose a stack or queue based on traversal style", "purpose": "prepare DFS or BFS"}
+    ],
+    "explanation": "Traversal needs a way to remember visited nodes and pending work."
+  },
+  {
+    "problem_type": "graph_traversal",
+    "problem": "Graph Traversal",
+    "stage": "iteration",
+    "input_pseudocode": "start node is ready",
+    "next_steps": [
+      {"line": "while the stack or queue is not empty", "purpose": "continue until all reachable nodes are processed"},
+      {"line": "repeat while there are nodes left to explore", "purpose": "control the traversal"}
+    ],
+    "explanation": "The bridge after setup is a loop over pending nodes."
+  },
+  {
+    "problem_type": "graph_traversal",
+    "problem": "Graph Traversal",
+    "stage": "decision_step",
+    "input_pseudocode": "current node is removed from the structure",
+    "next_steps": [
+      {"line": "for each neighbor of current node", "purpose": "continue exploring the graph"},
+      {"line": "if neighbor is not in visited then add it", "purpose": "avoid repeating work"}
+    ],
+    "explanation": "The next bridge is the neighbor exploration step."
+  },
+  {
+    "problem_type": "graph_traversal",
+    "problem": "Graph Traversal",
+    "stage": "state_update",
+    "input_pseudocode": "neighbor is not visited",
+    "next_steps": [
+      {"line": "mark neighbor as visited", "purpose": "remember that it has been discovered"},
+      {"line": "push or enqueue neighbor", "purpose": "schedule it for future processing"}
+    ],
+    "explanation": "Once a valid neighbor is found, it must be recorded and scheduled."
+  },
+
+  {
+    "problem_type": "dynamic_programming",
+    "problem": "Coin Change",
+    "stage": "state_setup",
+    "input_pseudocode": "I think there are repeated subproblems",
+    "next_steps": [
+      {"line": "create a memo table keyed by amount", "purpose": "reuse answers for repeated amounts"},
+      {"line": "store the best answer for each amount", "purpose": "avoid recomputation"}
+    ],
+    "explanation": "When repeated subproblems appear, the setup bridge is memoization or a DP table."
+  },
+  {
+    "problem_type": "dynamic_programming",
+    "problem": "Coin Change",
+    "stage": "base_case",
+    "input_pseudocode": "memo table exists",
+    "next_steps": [
+      {"line": "if amount is 0 then return 0", "purpose": "define the smallest solvable state"},
+      {"line": "if amount is negative then return impossible", "purpose": "stop invalid branches"}
+    ],
+    "explanation": "DP needs clear base cases before transitions make sense."
+  },
+  {
+    "problem_type": "dynamic_programming",
+    "problem": "Coin Change",
+    "stage": "decision_step",
+    "input_pseudocode": "for each coin",
+    "next_steps": [
+      {"line": "candidate = 1 + answer for amount - coin", "purpose": "express the transition"},
+      {"line": "keep the minimum valid candidate", "purpose": "combine subproblem answers"}
+    ],
+    "explanation": "The important bridge is the recurrence that turns smaller answers into a larger one."
+  },
+  {
+    "problem_type": "dynamic_programming",
+    "problem": "Coin Change",
+    "stage": "return_step",
+    "input_pseudocode": "best answer is computed",
+    "next_steps": [
+      {"line": "store best answer in memo before returning", "purpose": "reuse the result later"},
+      {"line": "return the best answer for this amount", "purpose": "finish the current state"}
+    ],
+    "explanation": "A memoized DP step should save the computed answer before returning it."
+  },
+
+  {
+    "problem_type": "sliding_window",
+    "problem": "Longest Substring Without Repeating Characters",
+    "stage": "state_setup",
+    "input_pseudocode": "I need a moving window",
+    "next_steps": [
+      {"line": "set left = 0", "purpose": "mark the beginning of the window"},
+      {"line": "create a set for characters in the current window", "purpose": "track duplicates quickly"}
+    ],
+    "explanation": "Sliding window problems need a window boundary and tracked state."
+  },
+  {
+    "problem_type": "sliding_window",
+    "problem": "Longest Substring Without Repeating Characters",
+    "stage": "iteration",
+    "input_pseudocode": "left and character set are ready",
+    "next_steps": [
+      {"line": "for each right index in the string", "purpose": "expand the window step by step"},
+      {"line": "move the right end through the string", "purpose": "consider each character once"}
+    ],
+    "explanation": "The next bridge is moving the right edge across the input."
+  },
+  {
+    "problem_type": "sliding_window",
+    "problem": "Longest Substring Without Repeating Characters",
+    "stage": "decision_step",
+    "input_pseudocode": "current character is at the right side",
+    "next_steps": [
+      {"line": "while current character is already in the window", "purpose": "detect an invalid window"},
+      {"line": "remove the character at left and move left forward", "purpose": "shrink until the window is valid"}
+    ],
+    "explanation": "When a duplicate appears, the bridge is shrinking the window."
+  },
+  {
+    "problem_type": "sliding_window",
+    "problem": "Longest Substring Without Repeating Characters",
+    "stage": "return_step",
+    "input_pseudocode": "window is valid again",
+    "next_steps": [
+      {"line": "update best_length with current window size", "purpose": "record the best valid window"},
+      {"line": "return best_length after the loop", "purpose": "finish with the maximum answer"}
+    ],
+    "explanation": "A valid window should update the best answer before continuing."
+  },
+
+  {
+    "problem_type": "prefix_sum",
+    "problem": "Range Sum Query",
+    "stage": "state_setup",
+    "input_pseudocode": "I want fast range sums",
+    "next_steps": [
+      {"line": "create a prefix_sum array", "purpose": "store cumulative totals"},
+      {"line": "start prefix_sum with 0", "purpose": "make range subtraction easier"}
+    ],
+    "explanation": "Prefix-sum solutions begin by preparing cumulative totals."
+  },
+  {
+    "problem_type": "prefix_sum",
+    "problem": "Range Sum Query",
+    "stage": "iteration",
+    "input_pseudocode": "prefix_sum starts with 0",
+    "next_steps": [
+      {"line": "for each number in the array", "purpose": "build cumulative sums step by step"},
+      {"line": "append previous prefix plus current number", "purpose": "grow the prefix array"}
+    ],
+    "explanation": "The next bridge is constructing the prefix sums."
+  },
+  {
+    "problem_type": "prefix_sum",
+    "problem": "Range Sum Query",
+    "stage": "return_step",
+    "input_pseudocode": "prefix_sum array is complete",
+    "next_steps": [
+      {"line": "range_sum = prefix_sum[right + 1] - prefix_sum[left]", "purpose": "answer a query in constant time"},
+      {"line": "return the difference between two prefix values", "purpose": "convert preprocessing into an answer"}
+    ],
+    "explanation": "Once prefix sums are ready, each query becomes a subtraction."
+  },
+
+  {
+    "problem_type": "merge_intervals",
+    "problem": "Merge Intervals",
+    "stage": "state_setup",
+    "input_pseudocode": "I need to combine overlapping intervals",
+    "next_steps": [
+      {"line": "sort intervals by starting value", "purpose": "bring possible overlaps next to each other"},
+      {"line": "create a result list called merged", "purpose": "store the combined intervals"}
+    ],
+    "explanation": "Sorting is the bridge that makes overlap checking local and simple."
+  },
+  {
+    "problem_type": "merge_intervals",
+    "problem": "Merge Intervals",
+    "stage": "iteration",
+    "input_pseudocode": "intervals are sorted and merged is empty",
+    "next_steps": [
+      {"line": "for each interval in sorted intervals", "purpose": "process intervals in order"},
+      {"line": "if merged is empty then add the first interval", "purpose": "initialize the result list"}
+    ],
+    "explanation": "The student next needs a loop over sorted intervals."
+  },
+  {
+    "problem_type": "merge_intervals",
+    "problem": "Merge Intervals",
+    "stage": "decision_step",
+    "input_pseudocode": "current interval and last merged interval are available",
+    "next_steps": [
+      {"line": "if current interval starts before or at the end of the last merged interval", "purpose": "detect overlap"},
+      {"line": "otherwise add current interval as a new merged block", "purpose": "separate non-overlapping intervals"}
+    ],
+    "explanation": "The key bridge is deciding whether the current interval overlaps the previous merged one."
+  },
+  {
+    "problem_type": "merge_intervals",
+    "problem": "Merge Intervals",
+    "stage": "state_update",
+    "input_pseudocode": "an overlap exists",
+    "next_steps": [
+      {"line": "update the end of the last merged interval to the larger end value", "purpose": "combine overlapping intervals"},
+      {"line": "extend the current merged block", "purpose": "absorb the new interval"}
+    ],
+    "explanation": "When overlap is found, the result list should be updated rather than appended."
+  },
+  {
+    "problem_type": "merge_intervals",
+    "problem": "Merge Intervals",
+    "stage": "return_step",
+    "input_pseudocode": "all intervals are processed",
+    "next_steps": [
+      {"line": "return merged", "purpose": "output the combined intervals"},
+      {"line": "return the result list", "purpose": "finish the process"}
+    ],
+    "explanation": "At the end, the merged list is the answer."
+  },
+
+  {
+    "problem_type": "tree_traversal",
+    "problem": "Binary Tree Inorder Traversal",
+    "stage": "base_case",
+    "input_pseudocode": "I want to traverse the tree",
+    "next_steps": [
+      {"line": "if node is null then return", "purpose": "stop recursion on empty children"},
+      {"line": "handle the empty node case first", "purpose": "make recursion safe"}
+    ],
+    "explanation": "Tree recursion needs a null-node base case before any visit order is meaningful."
+  },
+  {
+    "problem_type": "tree_traversal",
+    "problem": "Binary Tree Inorder Traversal",
+    "stage": "decision_step",
+    "input_pseudocode": "node is not null",
+    "next_steps": [
+      {"line": "traverse left child", "purpose": "follow inorder traversal order"},
+      {"line": "visit current node", "purpose": "process the root between left and right"},
+      {"line": "traverse right child", "purpose": "finish inorder order"}
+    ],
+    "explanation": "The bridge here is the correct visit order for inorder traversal."
+  },
+  {
+    "problem_type": "tree_traversal",
+    "problem": "Binary Tree Inorder Traversal",
+    "stage": "state_update",
+    "input_pseudocode": "visit current node",
+    "next_steps": [
+      {"line": "append node value to the answer list", "purpose": "record the visit"},
+      {"line": "store the current node in the traversal result", "purpose": "build the final order"}
+    ],
+    "explanation": "After reaching the visit step, the answer list should be updated."
+  },
+
+  {
+    "problem_type": "generic",
+    "problem": "Array Processing",
+    "stage": "state_setup",
+    "input_pseudocode": "I know the goal but I have not started",
+    "next_steps": [
+      {"line": "create a variable to store the running answer", "purpose": "prepare state before processing"},
+      {"line": "start with the simplest useful variable or data structure", "purpose": "make later steps concrete"}
+    ],
+    "explanation": "When the student is just starting, a small setup step is the easiest bridge."
+  },
+  {
+    "problem_type": "generic",
+    "problem": "Array Processing",
+    "stage": "iteration",
+    "input_pseudocode": "answer variable is ready",
+    "next_steps": [
+      {"line": "for each item in the input", "purpose": "move through the data in a controlled way"},
+      {"line": "repeat the main check for every element", "purpose": "turn an idea into a process"}
+    ],
+    "explanation": "Many students need help writing the first traversal step."
+  },
+  {
+    "problem_type": "generic",
+    "problem": "Array Processing",
+    "stage": "decision_step",
+    "input_pseudocode": "I am inside the loop now",
+    "next_steps": [
+      {"line": "if the current item satisfies the needed condition", "purpose": "separate the useful case"},
+      {"line": "otherwise continue with the next item", "purpose": "handle non-matching elements"}
+    ],
+    "explanation": "A common bridge is making the key condition explicit."
+  },
+  {
+    "problem_type": "generic",
+    "problem": "Array Processing",
+    "stage": "state_update",
+    "input_pseudocode": "the current item passes the condition",
+    "next_steps": [
+      {"line": "update the running answer using the current item", "purpose": "turn the successful check into progress"},
+      {"line": "store the new best or new count", "purpose": "preserve useful state"}
+    ],
+    "explanation": "Students often know the condition but get stuck on the update step."
+  },
+  {
+    "problem_type": "generic",
+    "problem": "Array Processing",
+    "stage": "return_step",
+    "input_pseudocode": "the loop is complete",
+    "next_steps": [
+      {"line": "return the final answer", "purpose": "finish the algorithm cleanly"},
+      {"line": "output the stored result", "purpose": "convert accumulated state into the solution"}
+    ],
+    "explanation": "After processing everything, the last bridge is returning the result."
   }
 ]

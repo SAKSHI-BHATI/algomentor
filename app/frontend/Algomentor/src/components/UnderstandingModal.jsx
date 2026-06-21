@@ -38,6 +38,22 @@ function reducer(state, action) {
   }
 }
 
+const getApiBaseUrl = () => {
+  const configured = import.meta.env.VITE_API_BASE_URL?.trim();
+  if (configured) {
+    return configured.replace(/\/$/, '');
+  }
+
+  if (typeof window !== 'undefined') {
+    const { protocol, hostname } = window.location;
+    if (protocol === 'http:' || protocol === 'https:') {
+      return `${protocol}//${hostname}:5001`;
+    }
+  }
+
+  return 'http://localhost:5001';
+};
+
 const UnderstandingModal = ({ onClose }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const intervalRef = useRef(null);
@@ -57,14 +73,32 @@ const UnderstandingModal = ({ onClose }) => {
     }
   }, [state.step, state.mode]);
 
-  const evaluate = () => {
-    const text = state.reflection.toLowerCase();
-    const score =
-      text.length > 100 &&
-      (text.includes('hash') || text.includes('complement'))
-        ? 2
-        : 1;
-    dispatch({ type: 'EVALUATE', payload: score });
+  const evaluate = async () => {
+    try {
+      const response = await fetch(`${getApiBaseUrl()}/api/inference/evaluate-understanding`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: state.reflection,
+          problem: 'Two Sum',
+        }),
+      });
+      const payload = await response.json();
+      const score = payload.decision === 'PROCEED' ? 2 : 1;
+      dispatch({ type: 'EVALUATE', payload: score });
+    } catch (e) {
+      console.error('Error evaluating understanding:', e);
+      // Fallback
+      const text = state.reflection.toLowerCase();
+      const score =
+        text.length > 100 &&
+        (text.includes('hash') || text.includes('complement'))
+          ? 2
+          : 1;
+      dispatch({ type: 'EVALUATE', payload: score });
+    }
   };
 
   const current = steps[state.step];
