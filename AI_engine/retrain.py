@@ -51,6 +51,8 @@ def _parse_args() -> argparse.Namespace:
                    help="Skip hint model index building")
     p.add_argument("--skip-next-step",     action="store_true",
                    help="Skip next-step model index building")
+    p.add_argument("--skip-pseudocode",    action="store_true",
+                   help="Skip pseudocode evaluation model training")
     return p.parse_args()
 
 
@@ -161,6 +163,7 @@ def retrain_all(args: argparse.Namespace) -> None:
     understanding_ds = os.path.join(args.datasets_dir, "understanding_dataset.json")
     hint_ds          = os.path.join(args.datasets_dir, "Hint_Generation_Dataset.json")
     next_step_ds     = os.path.join(args.datasets_dir, "Reasoning_Next_Step_Dataset.json")
+    pseudo_ds        = os.path.join(args.datasets_dir, "Pseudocode_Evaluation_Dataset.json")
 
     # ── Validate all datasets upfront ─────────────────────────
     print("Validating datasets …")
@@ -177,6 +180,10 @@ def retrain_all(args: argparse.Namespace) -> None:
         next_step_ds, "Reasoning Next Step Dataset",
         ["problem_id", "user_pseudocode", "thinking_state", "next_steps"]
     )
+    all_ok &= _validate_dataset(
+        pseudo_ds, "Pseudocode Evaluation Dataset",
+        ["input", "label"]
+    )
 
     if not all_ok:
         print("\n❌  Retraining aborted — fix dataset issues above first.\n")
@@ -186,7 +193,7 @@ def retrain_all(args: argparse.Namespace) -> None:
 
     # ── 1. Understanding Model ─────────────────────────────────
     if not args.skip_understanding:
-        print("[1/3] Training Understanding Model (MLP on sentence embeddings) …")
+        print("[1/4] Training Understanding Model (MLP on sentence embeddings) …")
         from AI_engine.model_logic.understanding_model import train_model
 
         t0      = time.time()
@@ -196,13 +203,13 @@ def retrain_all(args: argparse.Namespace) -> None:
               f"Accuracy: {metrics['accuracy']:.4f}  |  "
               f"F1 (weighted): {metrics['f1']:.4f}")
     else:
-        print("[1/3] Understanding model — SKIPPED")
+        print("[1/4] Understanding model — SKIPPED")
 
     print()
 
     # ── 2. Hint Generation Index ───────────────────────────────
     if not args.skip_hint:
-        print("[2/3] Building Hint Generation semantic index …")
+        print("[2/4] Building Hint Generation semantic index …")
         from AI_engine.model_logic.hint_generation_model import build_index as build_hint
 
         t0 = time.time()
@@ -214,13 +221,13 @@ def retrain_all(args: argparse.Namespace) -> None:
         hit3 = _eval_hint_retrieval(hint_ds)
         print(f"      ✅  Hit@3 accuracy: {hit3:.4f}")
     else:
-        print("[2/3] Hint model — SKIPPED")
+        print("[2/4] Hint model — SKIPPED")
 
     print()
 
     # ── 3. Next Step Index ─────────────────────────────────────
     if not args.skip_next_step:
-        print("[3/3] Building Next Step semantic index …")
+        print("[3/4] Building Next Step semantic index …")
         from AI_engine.model_logic.reasoning_next_step_model import build_index as build_steps
 
         t0 = time.time()
@@ -232,7 +239,21 @@ def retrain_all(args: argparse.Namespace) -> None:
         mrr = _eval_next_step_mrr(next_step_ds)
         print(f"      ✅  MRR@3: {mrr:.4f}")
     else:
-        print("[3/3] Next step model — SKIPPED")
+        print("[3/4] Next step model — SKIPPED")
+
+    print()
+
+    # ── 4. Pseudocode Evaluation Model ─────────────────────────
+    if not args.skip_pseudocode:
+        print("[4/4] Training Pseudocode Evaluation Model (TF-IDF + LogisticRegression) …")
+        from AI_engine.model_logic.pseudocode_evaluation_model import train_model as train_pseudo
+
+        t0 = time.time()
+        train_pseudo(pseudo_ds)
+        elapsed = time.time() - t0
+        print(f"      ✅  Pseudocode model trained in {elapsed:.1f}s")
+    else:
+        print("[4/4] Pseudocode model — SKIPPED")
 
     print()
     print("=" * 68)
@@ -245,3 +266,4 @@ def retrain_all(args: argparse.Namespace) -> None:
 if __name__ == "__main__":
     args = _parse_args()
     retrain_all(args)
+

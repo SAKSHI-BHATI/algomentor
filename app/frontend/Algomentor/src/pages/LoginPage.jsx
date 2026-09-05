@@ -12,18 +12,29 @@ import StarBackground from '../components/StarBackground';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    login(email, password);
-    navigate('/dashboard');
+    setError('');
+    try {
+      await login(email, password);
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.message || 'Unable to sign in. Check that the backend is running.');
+    }
   };
 
-  const handleDemoLogin = () => {
-    login('demo@algomentor.com', 'demo123');
-    navigate('/dashboard');
+  const handleDemoLogin = async () => {
+    setError('');
+    try {
+      await login('demo@algomentor.com', 'demo123');
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.message || 'Unable to reach the backend.');
+    }
   };
 
   return (
@@ -129,6 +140,8 @@ const LoginPage = () => {
                 <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
               </Button>
             </form>
+
+            {error && <p className="mt-4 text-sm text-rose-600" role="alert">{error}</p>}
 
             <div className="mt-6">
               <div className="relative">

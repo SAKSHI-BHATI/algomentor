@@ -90,9 +90,30 @@ const PointerLabel = ({ idx, idx1, idx2 }) => {
   );
 };
 
-// ─── Array visualisation panel (right panel inner section) ───────────────────
-const ArrayVisualization = ({ step, stepIndex, totalSteps }) => {
+import GraphCanvasVisualizer from '../components/GraphCanvasVisualizer';
+import ArrayBarVisualizer from '../components/ArrayBarVisualizer';
+import LinkedListVisualizer from '../components/LinkedListVisualizer';
+import DPTableVisualizer from '../components/DPTableVisualizer';
+
+// ─── Visualisation Panel — Switches between Array & Graph ──────────────────────
+const MultiDSVisualization = ({ step, stepIndex, totalSteps, problemId }) => {
   if (!step) return null;
+
+  if (step.is_graph) {
+    return <GraphCanvasVisualizer step={step} stepIndex={stepIndex} totalSteps={totalSteps} />;
+  }
+
+  if (problemId === 'reverse_linked_list') {
+    return <LinkedListVisualizer step={step} stepIndex={stepIndex} totalSteps={totalSteps} />;
+  }
+
+  if (problemId === 'fibonacci_dp' || problemId === 'climbing_stairs') {
+    return <DPTableVisualizer step={step} stepIndex={stepIndex} totalSteps={totalSteps} />;
+  }
+
+  if (/(sort|search|sum|substring|subarray|duplicate)/.test(problemId)) {
+    return <ArrayBarVisualizer step={step} stepIndex={stepIndex} totalSteps={totalSteps} />;
+  }
 
   const { state = [], idx1 = -1, idx2 = -1, is_action: isAction = false, message = "" } = step;
   const isDone = isCompletionMessage(message);
@@ -433,12 +454,13 @@ const SimulationPage = () => {
               </div>
             ) : (
               <div className="space-y-6">
-                {/* ── Feature 2: i/j array visualisation ──────────────────── */}
+                {/* ── Feature 2: Multi-DS visualisation (Array, Graph, Linked List) ── */}
                 {activeStep && (
-                  <ArrayVisualization
+                  <MultiDSVisualization
                     step={activeStep}
                     stepIndex={currentStep}
                     totalSteps={activeSteps.length}
+                    problemId={backendProblemId}
                   />
                 )}
 

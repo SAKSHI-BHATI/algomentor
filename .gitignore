@@ -46,6 +46,7 @@ Thumbs.db
 # Cache folders
 # =========================
 .cache/
+.pytest_cache/
 
 # =========================
 # Misc

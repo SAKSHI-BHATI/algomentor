@@ -115,6 +115,70 @@ def insertion_sort_visualizer(arr: list) -> Iterator[dict]:
     yield emit_step(list(arr), -1, -1, "Sort Complete", True)
 
 
+def merge_sort_visualizer(arr: list) -> Iterator[dict]:
+    arr_copy = list(arr)
+    yield emit_step(list(arr_copy), -1, -1, "Starting Merge Sort", False)
+
+    def _merge_sort(l, r):
+        if l >= r:
+            return
+        mid = (l + r) // 2
+        yield emit_step(list(arr_copy), l, r, f"Dividing range [{l}, {r}] at midpoint {mid}", False)
+        yield from _merge_sort(l, mid)
+        yield from _merge_sort(mid + 1, r)
+
+        left_part = arr_copy[l:mid + 1]
+        right_part = arr_copy[mid + 1:r + 1]
+        i = j = 0
+        k = l
+        while i < len(left_part) and j < len(right_part):
+            yield emit_step(list(arr_copy), l + i, mid + 1 + j, f"Comparing {left_part[i]} and {right_part[j]}", False)
+            if left_part[i] <= right_part[j]:
+                arr_copy[k] = left_part[i]
+                i += 1
+            else:
+                arr_copy[k] = right_part[j]
+                j += 1
+            k += 1
+            yield emit_step(list(arr_copy), k - 1, -1, f"Merged element into index {k-1}", True)
+        while i < len(left_part):
+            arr_copy[k] = left_part[i]
+            i += 1
+            k += 1
+        while j < len(right_part):
+            arr_copy[k] = right_part[j]
+            j += 1
+            k += 1
+
+    yield from _merge_sort(0, len(arr_copy) - 1)
+    yield emit_step(list(arr_copy), -1, -1, "Merge Sort Complete!", True)
+
+
+def quick_sort_visualizer(arr: list) -> Iterator[dict]:
+    arr_copy = list(arr)
+    yield emit_step(list(arr_copy), -1, -1, "Starting Quick Sort", False)
+
+    def _quick_sort(low, high):
+        if low < high:
+            pivot = arr_copy[high]
+            i = low - 1
+            yield emit_step(list(arr_copy), high, -1, f"Pivot selected: {pivot} at index {high}", False)
+            for j in range(low, high):
+                yield emit_step(list(arr_copy), j, high, f"Comparing {arr_copy[j]} with pivot {pivot}", False)
+                if arr_copy[j] < pivot:
+                    i += 1
+                    _swap(arr_copy, i, j)
+                    yield emit_step(list(arr_copy), i, j, f"Swapped elements {arr_copy[i]} and {arr_copy[j]}", True)
+            _swap(arr_copy, i + 1, high)
+            p_idx = i + 1
+            yield emit_step(list(arr_copy), p_idx, -1, f"Placed pivot {pivot} at final index {p_idx}", True)
+            yield from _quick_sort(low, p_idx - 1)
+            yield from _quick_sort(p_idx + 1, high)
+
+    yield from _quick_sort(0, len(arr_copy) - 1)
+    yield emit_step(list(arr_copy), -1, -1, "Quick Sort Complete!", True)
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # SEARCHING GENERATORS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -495,14 +559,51 @@ def normalize_custom_graph_step(step: Any, last_state: list) -> dict:
     }
 
 
+DISALLOWED_AST_NODES = (ast.Import, ast.ImportFrom)
+DISALLOWED_CALL_NAMES = {
+    "open", "eval", "exec", "__import__", "globals", "locals",
+    "getattr", "setattr", "delattr", "compile", "exit", "quit",
+    "input", "os", "sys", "subprocess", "shutil", "socket"
+}
+
+def validate_ast_safety(user_code: str) -> str | None:
+    """
+    Parse AST and check for prohibited imports or builtins.
+    Returns error string if violation found, else None.
+    """
+    try:
+        tree = ast.parse(user_code)
+    except SyntaxError as exc:
+        return f"SyntaxError on line {exc.lineno}: {exc.msg}"
+
+    for node in ast.walk(tree):
+        if isinstance(node, DISALLOWED_AST_NODES):
+            return "Security violation: Imports are disabled in custom code simulation."
+        if isinstance(node, ast.Call):
+            func = node.func
+            name = None
+            if isinstance(func, ast.Name):
+                name = func.id
+            elif isinstance(func, ast.Attribute):
+                name = func.attr
+            if name in DISALLOWED_CALL_NAMES:
+                return f"Security violation: Function '{name}' is restricted in simulation."
+    return None
+
+
 def trace_plain_python_code(user_code: str, runtime_inputs: dict) -> tuple[list, str | None]:
     """
     Execute arbitrary Python using sys.settrace to capture line-by-line steps.
     Returns (steps_list, error_string | None).
     """
+    safety_error = validate_ast_safety(user_code)
+    if safety_error:
+        return [], safety_error
+
     filename = "<custom_exec>"
     source_lines = user_code.splitlines()
     steps: list[dict] = []
+    MAX_STEPS = 500
 
     namespace = {
         "deque":     deque,
@@ -520,6 +621,8 @@ def trace_plain_python_code(user_code: str, runtime_inputs: dict) -> tuple[list,
         if frame.f_code.co_filename != filename:
             return tracer
         if event == "line":
+            if len(steps) >= MAX_STEPS:
+                raise RuntimeError(f"Execution step limit reached ({MAX_STEPS} steps max).")
             local_vars = dict(frame.f_locals)
             graph_payload = infer_graph_trace_payload(local_vars)
             if graph_payload is not None:
@@ -727,6 +830,14 @@ def run_simulation(
     elif pid == "reverse_linked_list":
         arr = list(merged.get("arr", merged.get("nums", [1, 2, 3, 4, 5])))
         gen = reverse_linked_list_visualizer(arr)
+
+    elif pid == "merge_sort":
+        arr = list(merged.get("arr", [38, 27, 43, 3, 9, 82, 10]))
+        gen = merge_sort_visualizer(arr)
+
+    elif pid == "quick_sort":
+        arr = list(merged.get("arr", [10, 80, 30, 90, 40, 50, 70]))
+        gen = quick_sort_visualizer(arr)
 
     elif pid == "maximum_subarray":
         arr = list(merged.get("arr", [-2, 1, -3, 4, -1, 2, 1, -5, 4]))
